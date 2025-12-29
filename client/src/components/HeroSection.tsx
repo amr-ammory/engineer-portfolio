@@ -79,7 +79,7 @@ export default function HeroSection() {
             Amr Ammory
           </h1>
           <p className="text-orange-400 text-xl md:text-2xl font-semibold mb-2 drop-shadow-md">
-            Mechanical Engineer
+            Design & Production Engineer - Mechanical
           </p>
         </motion.div>
 
