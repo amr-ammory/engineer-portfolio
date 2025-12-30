@@ -13,6 +13,7 @@ import { useState } from 'react';
 
 export default function AboutSection() {
   const [downloadClicked, setDownloadClicked] = useState(false);
+  const [downloadClickedAr, setDownloadClickedAr] = useState(false);
 
   const stats = [
     {
@@ -79,29 +80,48 @@ export default function AboutSection() {
                 About Me
               </h2>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
               I'm a highly motivated and proficient fifth-year Mechanical Engineering student
               specializing in Advanced Mechanical Design and Precision Manufacturing Processes.
               With extensive hands-on experience in SolidWorks, ANSYS, and AutoCAD, I've successfully
               completed over 50 design projects achieving 100% compliance with ASME and ISO standards.
             </p>
-            <motion.a
-              href="/Amr_Ammory_CV.pdf"
-              download="Amr_Ammory_CV.pdf"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setDownloadClicked(true)}
-              className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
-            >
-              <motion.div
-                animate={downloadClicked ? { y: [0, -5, 0] } : {}}
-                transition={{ duration: 0.6 }}
-                onAnimationComplete={() => setDownloadClicked(false)}
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+              <motion.a
+                href="/Amr_Ammory_CV.pdf"
+                download="Amr_Ammory_CV.pdf"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setDownloadClicked(true)}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
               >
-                <Download className="w-5 h-5" />
-              </motion.div>
-              Download My CV
-            </motion.a>
+                <motion.div
+                  animate={downloadClicked ? { y: [0, -5, 0] } : {}}
+                  transition={{ duration: 0.6 }}
+                  onAnimationComplete={() => setDownloadClicked(false)}
+                >
+                  <Download className="w-5 h-5" />
+                </motion.div>
+                Download My CV
+              </motion.a>
+              <motion.a
+                href="/Amr_Ammory_CV_Arabic.pdf"
+                download="Amr_Ammory_CV_Arabic.pdf"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setDownloadClickedAr(true)}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
+              >
+                <motion.div
+                  animate={downloadClickedAr ? { y: [0, -5, 0] } : {}}
+                  transition={{ duration: 0.6 }}
+                  onAnimationComplete={() => setDownloadClickedAr(false)}
+                >
+                  <Download className="w-5 h-5" />
+                </motion.div>
+                تنزيل السيرة الذاتية
+              </motion.a>
+            </div>
           </motion.div>
 
           {/* Stats Grid */}
