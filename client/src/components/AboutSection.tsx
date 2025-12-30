@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Award, Code2, Users } from 'lucide-react';
+import { Briefcase, Award, Code2, Users, Download } from 'lucide-react';
+import { useState } from 'react';
 
 /**
  * About Section Component
@@ -11,6 +12,8 @@ import { Briefcase, Award, Code2, Users } from 'lucide-react';
  */
 
 export default function AboutSection() {
+  const [downloadClicked, setDownloadClicked] = useState(false);
+
   const stats = [
     {
       icon: Code2,
@@ -82,6 +85,23 @@ export default function AboutSection() {
               With extensive hands-on experience in SolidWorks, ANSYS, and AutoCAD, I've successfully
               completed over 50 design projects achieving 100% compliance with ASME and ISO standards.
             </p>
+            <motion.a
+              href="/Amr_Ammory_CV.pdf"
+              download="Amr_Ammory_CV.pdf"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setDownloadClicked(true)}
+              className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
+            >
+              <motion.div
+                animate={downloadClicked ? { y: [0, -5, 0] } : {}}
+                transition={{ duration: 0.6 }}
+                onAnimationComplete={() => setDownloadClicked(false)}
+              >
+                <Download className="w-5 h-5" />
+              </motion.div>
+              Download My CV
+            </motion.a>
           </motion.div>
 
           {/* Stats Grid */}
