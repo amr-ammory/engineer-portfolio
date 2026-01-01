@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import ServicesAndCertificationsSection from '@/components/ServicesAndCertificationsSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ExperienceSection from '@/components/ExperienceSection';
@@ -32,6 +33,11 @@ export default function Home() {
         {/* About Section */}
         <section id="about">
           <AboutSection />
+        </section>
+
+        {/* Services and Certifications Section */}
+        <section id="services">
+          <ServicesAndCertificationsSection />
         </section>
 
         {/* Skills Section */}

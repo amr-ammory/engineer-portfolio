@@ -17,6 +17,7 @@ export default function Navigation() {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
     { label: 'Experience', href: '#experience' },
@@ -106,7 +107,7 @@ export default function Navigation() {
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' as const }}
         >
-          <div className="py-4 space-y-3 border-t border-gray-200">
+            <div className="py-4 space-y-3 border-t border-gray-200">
             {navItems.map((item, index) => (
               <motion.button
                 key={index}
@@ -124,7 +125,7 @@ export default function Navigation() {
               className="block w-full px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-all duration-300 mt-4"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: navItems.length * 0.05 }}
+              transition={{ delay: (navItems.length + 1) * 0.05 }}
             >
               Contact Me
             </motion.button>
