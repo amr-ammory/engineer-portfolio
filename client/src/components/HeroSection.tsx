@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Hero Section Component
@@ -12,6 +13,7 @@ import { Button } from '@/components/ui/button';
  */
 
 export default function HeroSection() {
+  const { language, t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,18 +78,17 @@ export default function HeroSection() {
         {/* Main Heading */}
         <motion.div variants={itemVariants} className="text-center mb-6 max-w-4xl">
           <h1 className="text-white text-5xl md:text-7xl font-bold mb-4 leading-tight drop-shadow-lg">
-            Amr Ammory
+            {language === 'ar' ? 'عمرو عموري' : 'Amr Ammory'}
           </h1>
           <p className="text-orange-400 text-xl md:text-2xl font-semibold mb-2 drop-shadow-md">
-            Design & Production Engineer - Mechanical
+            {t('hero.subtitle')}
           </p>
         </motion.div>
 
         {/* Subtitle */}
         <motion.div variants={itemVariants} className="text-center max-w-2xl mb-12">
           <p className="text-gray-100 text-lg md:text-xl leading-relaxed drop-shadow-md">
-            Specializing in Advanced Mechanical Design and Precision Manufacturing
-            with expertise in SolidWorks, ANSYS, and AutoCAD
+            {t('hero.description')}
           </p>
         </motion.div>
 
@@ -100,14 +101,14 @@ export default function HeroSection() {
             size="lg"
             className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1"
           >
-            View My Work
+            {t('hero.viewWork')}
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out"
           >
-            Get In Touch
+            {t('hero.getInTouch')}
           </Button>
         </motion.div>
 

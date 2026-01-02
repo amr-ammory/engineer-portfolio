@@ -1,3 +1,4 @@
+import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 

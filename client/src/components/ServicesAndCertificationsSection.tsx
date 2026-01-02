@@ -1,3 +1,4 @@
+import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Award, FileText, Users, CheckCircle, Briefcase, Shield } from 'lucide-react';
 

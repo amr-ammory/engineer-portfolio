@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Award, Code2, Users, Download } from 'lucide-react';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * About Section Component
@@ -12,6 +13,7 @@ import { useState } from 'react';
  */
 
 export default function AboutSection() {
+  const { language, t } = useLanguage();
   const [downloadClicked, setDownloadClicked] = useState(false);
   const [downloadClickedAr, setDownloadClickedAr] = useState(false);
 

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Navigation Component
@@ -15,15 +16,16 @@ import { useDarkMode } from '@/contexts/DarkModeContext';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('nav.home'), href: '#home' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.services'), href: '#services' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   const handleScroll = (href: string) => {
@@ -75,6 +77,20 @@ export default function Navigation() {
             ))}
           </div>
 
+          {/* Language Toggle */}
+          <motion.button
+            onClick={toggleLanguage}
+            className="hidden md:flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 gap-1"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+          >
+            <Globe className="w-5 h-5 text-gray-700 dark:text-gray-200" />
+            <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+              {language === 'en' ? 'عربي' : 'EN'}
+            </span>
+          </motion.button>
+
           {/* Dark Mode Toggle */}
           <motion.button
             onClick={toggleDarkMode}
@@ -97,7 +113,18 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Contact Me
+            {t('nav.contactMe')}
+          </motion.button>
+
+          {/* Language Toggle Mobile */}
+          <motion.button
+            onClick={toggleLanguage}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 mr-2"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+          >
+            <Globe className="w-5 h-5 text-gray-700 dark:text-gray-200" />
           </motion.button>
 
           {/* Dark Mode Toggle Mobile */}
