@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useState } from 'react';
+import { useDarkMode } from '@/contexts/DarkModeContext';
 
 /**
  * Navigation Component
@@ -13,6 +14,7 @@ import { useState } from 'react';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -34,7 +36,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' as const }}
@@ -64,14 +66,29 @@ export default function Navigation() {
               <motion.button
                 key={index}
                 onClick={() => handleScroll(item.href)}
-                className="text-gray-700 font-medium hover:text-orange-600 transition-colors duration-300 relative group"
+                className="text-gray-700 dark:text-gray-200 font-medium hover:text-orange-600 dark:hover:text-orange-400 transition-colors duration-300 relative group"
                 whileHover={{ y: -2 }}
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 dark:bg-orange-400 group-hover:w-full transition-all duration-300" />
               </motion.button>
             ))}
           </div>
+
+          {/* Dark Mode Toggle */}
+          <motion.button
+            onClick={toggleDarkMode}
+            className="hidden md:flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {isDarkMode ? (
+              <Sun className="w-5 h-5 text-yellow-500" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-700" />
+            )}
+          </motion.button>
 
           {/* CTA Button */}
           <motion.button
@@ -83,16 +100,31 @@ export default function Navigation() {
             Contact Me
           </motion.button>
 
+          {/* Dark Mode Toggle Mobile */}
+          <motion.button
+            onClick={toggleDarkMode}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 mr-2"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {isDarkMode ? (
+              <Sun className="w-5 h-5 text-yellow-500" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-700" />
+            )}
+          </motion.button>
+
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors duration-300"
+            className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
             whileTap={{ scale: 0.95 }}
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-gray-900" />
+              <X className="w-6 h-6 text-gray-900 dark:text-gray-50" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-900" />
+              <Menu className="w-6 h-6 text-gray-900 dark:text-gray-50" />
             )}
           </motion.button>
         </div>
@@ -107,12 +139,12 @@ export default function Navigation() {
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' as const }}
         >
-            <div className="py-4 space-y-3 border-t border-gray-200">
+            <div className="py-4 space-y-3 border-t border-gray-200 dark:border-slate-700">
             {navItems.map((item, index) => (
               <motion.button
                 key={index}
                 onClick={() => handleScroll(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors duration-300 font-medium"
+                className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-lg transition-colors duration-300 font-medium"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.05 }}
