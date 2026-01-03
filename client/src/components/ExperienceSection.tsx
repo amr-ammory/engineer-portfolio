@@ -1,6 +1,6 @@
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Award, Briefcase, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Experience and Certifications Section Component
@@ -12,6 +12,7 @@ import { Award, Briefcase, CheckCircle } from 'lucide-react';
  */
 
 export default function ExperienceSection() {
+  const { t } = useLanguage();
   const experiences = [
     {
       title: 'Precision Mechanical Parts Designer & Producer',
@@ -106,8 +107,8 @@ export default function ExperienceSection() {
           <motion.div variants={itemVariants} className="mb-20">
             <div className="flex items-center gap-4 mb-12">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Professional Experience
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                {t('experience.title')}
               </h2>
             </div>
 
@@ -120,20 +121,20 @@ export default function ExperienceSection() {
                   className="relative pl-8 border-l-2 border-orange-600 pb-8"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-4 top-0 w-6 h-6 bg-orange-600 rounded-full border-4 border-white" />
+                  <div className="absolute -left-4 top-0 w-6 h-6 bg-orange-600 rounded-full border-4 border-white dark:border-gray-900" />
 
                   {/* Content */}
-                  <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.title}</h3>
-                    <p className="text-orange-600 font-semibold mb-3">{exp.company}</p>
-                    <p className="text-gray-600 mb-4">{exp.description}</p>
+                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{exp.title}</h3>
+                    <p className="text-orange-600 dark:text-orange-400 font-semibold mb-3">{exp.company}</p>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
 
                     {/* Highlights */}
                     <div className="flex flex-wrap gap-2">
                       {exp.highlights.map((highlight, hIndex) => (
                         <span
                           key={hIndex}
-                          className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full"
+                          className="px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full"
                         >
                           {highlight}
                         </span>

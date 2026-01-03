@@ -1,7 +1,7 @@
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Projects Section Component
@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
  */
 
 export default function ProjectsSection() {
+  const { t } = useLanguage();
   const projects = [
     {
       title: 'Al-Mutafawiq Platform (ENG)',
@@ -98,13 +99,12 @@ export default function ProjectsSection() {
           <motion.div variants={itemVariants} className="mb-16 md:mb-24">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Featured Projects
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                {t('projects.title')}
               </h2>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-              A selection of my professional projects and initiatives showcasing expertise in mechanical
-              engineering design, project management, and community leadership.
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+              {t('projects.subtitle')}
             </p>
           </motion.div>
 

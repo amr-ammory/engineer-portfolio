@@ -1,5 +1,5 @@
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Skills Section Component
@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
  */
 
 export default function SkillsSection() {
+  const { t } = useLanguage();
   const skillCategories = [
     {
       title: 'Advanced Engineering Design',
@@ -89,7 +90,7 @@ export default function SkillsSection() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-white to-gray-50">
+    <section className="relative py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -102,13 +103,13 @@ export default function SkillsSection() {
           <motion.div variants={itemVariants} className="mb-16 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="w-1 h-8 bg-orange-600 rounded-full" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Technical Skills
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                {t('skills.title')}
               </h2>
               <div className="w-1 h-8 bg-orange-600 rounded-full" />
             </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive expertise across mechanical engineering design, analysis, and project management
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              {t('skills.subtitle')}
             </p>
           </motion.div>
 
@@ -121,17 +122,17 @@ export default function SkillsSection() {
               <motion.div
                 key={categoryIndex}
                 variants={itemVariants}
-                className="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-6">{category.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">{category.title}</h3>
                 <div className="space-y-5">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex}>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                        <span className="text-xs font-bold text-orange-600">{skill.level}%</span>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                        <span className="text-xs font-bold text-orange-600 dark:text-orange-400">{skill.level}%</span>
                       </div>
-                      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                         <motion.div
                           className={`h-full bg-gradient-to-r ${getSkillColor(skill.level)} rounded-full`}
                           initial={{ width: 0 }}
@@ -148,16 +149,16 @@ export default function SkillsSection() {
           </motion.div>
 
           {/* Languages Section */}
-          <motion.div variants={itemVariants} className="mt-16 p-8 bg-blue-50 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Languages</h3>
+          <motion.div variants={itemVariants} className="mt-16 p-8 bg-blue-50 dark:bg-gray-800 rounded-lg">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('skills.languages')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-lg font-semibold text-blue-900 mb-2">Arabic</h4>
-                <p className="text-gray-700">Native proficiency - Full fluency</p>
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-2">{t('skills.arabic')}</h4>
+                <p className="text-gray-700 dark:text-gray-300">{t('skills.arabicLevel')}</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-blue-900 mb-2">English</h4>
-                <p className="text-gray-700">Advanced proficiency - Professional level</p>
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-2">{t('skills.english')}</h4>
+                <p className="text-gray-700 dark:text-gray-300">{t('skills.englishLevel')}</p>
               </div>
             </div>
           </motion.div>

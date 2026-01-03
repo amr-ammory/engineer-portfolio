@@ -65,7 +65,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-white">
+    <section className="relative py-20 md:py-32 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -78,15 +78,12 @@ export default function AboutSection() {
           <motion.div variants={itemVariants} className="mb-16 md:mb-24">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                About Me
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                {t('about.title')}
               </h2>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
-              I'm a highly motivated and proficient fifth-year Mechanical Engineering student
-              specializing in Advanced Mechanical Design and Precision Manufacturing Processes.
-              With extensive hands-on experience in SolidWorks, ANSYS, and AutoCAD, I've successfully
-              completed over 50 design projects achieving 100% compliance with ASME and ISO standards.
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mb-6">
+              {t('about.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <motion.a
@@ -104,7 +101,7 @@ export default function AboutSection() {
                 >
                   <Download className="w-5 h-5" />
                 </motion.div>
-                Download My CV
+                {t('about.downloadCV')}
               </motion.a>
               <motion.a
                 href="/Amr_Ammory_CV_Arabic.pdf"
@@ -121,7 +118,7 @@ export default function AboutSection() {
                 >
                   <Download className="w-5 h-5" />
                 </motion.div>
-                تنزيل السيرة الذاتية
+                {t('about.downloadCVAr')}
               </motion.a>
             </div>
           </motion.div>
@@ -137,46 +134,43 @@ export default function AboutSection() {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4 mb-4">
                     <div className="p-3 bg-orange-600 rounded-lg">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
-                      <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
+                      <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{stat.label}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{stat.description}</p>
                 </motion.div>
               );
             })}
           </motion.div>
 
           {/* Key Highlights */}
-          <motion.div variants={itemVariants} className="bg-blue-50 rounded-lg p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Core Expertise</h3>
+          <motion.div variants={itemVariants} className="bg-blue-50 dark:bg-gray-800 rounded-lg p-8 md:p-12">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('about.coreExpertise')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <h4 className="text-lg font-semibold text-blue-900 mb-3">Design & Simulation</h4>
-                <p className="text-gray-700">
-                  Advanced CAD modeling, FEA analysis, stress simulation, and precision component design
-                  using industry-leading software.
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-3">{t('about.designSimulation')}</h4>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {t('about.designDesc')}
                 </p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-blue-900 mb-3">Manufacturing & Standards</h4>
-                <p className="text-gray-700">
-                  Deep understanding of manufacturing processes, ASME/ISO standards compliance, and
-                  precision fabrication techniques.
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-3">{t('about.manufacturingStandards')}</h4>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {t('about.manufacturingDesc')}
                 </p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-blue-900 mb-3">Project Management</h4>
-                <p className="text-gray-700">
-                  Strategic planning, team leadership, process optimization, and 100% goal achievement
-                  in engineering projects.
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-3">{t('about.projectManagement')}</h4>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {t('about.projectDesc')}
                 </p>
               </div>
             </div>

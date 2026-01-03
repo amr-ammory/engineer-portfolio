@@ -1,8 +1,8 @@
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Contact Section Component
@@ -14,6 +14,7 @@ import { useState } from 'react';
  */
 
 export default function ContactSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -106,21 +107,20 @@ export default function ContactSection() {
           <motion.div variants={itemVariants} className="mb-16 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="w-1 h-8 bg-orange-600 rounded-full" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Get In Touch
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                {t('contact.title')}
               </h2>
               <div className="w-1 h-8 bg-orange-600 rounded-full" />
             </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              I'm always interested in hearing about new projects and opportunities.
-              Feel free to reach out if you'd like to collaborate or discuss engineering solutions.
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              {t('contact.subtitle')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div variants={itemVariants} className="space-y-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('contact.contactInfo')}</h3>
 
               {/* Contact Details */}
               <div className="space-y-6">
@@ -131,14 +131,14 @@ export default function ContactSection() {
                       key={index}
                       href={info.link}
                       variants={itemVariants}
-                      className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                      className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
                     >
-                      <div className="p-3 bg-orange-100 rounded-lg">
-                        <Icon className="w-6 h-6 text-orange-600" />
+                      <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-lg">
+                        <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-gray-600">{info.label}</p>
-                        <p className="text-lg font-bold text-gray-900">{info.value}</p>
+                        <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">{info.label}</p>
+                        <p className="text-lg font-bold text-gray-900 dark:text-white">{info.value}</p>
                       </div>
                     </motion.a>
                   );

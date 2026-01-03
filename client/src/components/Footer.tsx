@@ -1,6 +1,6 @@
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Footer Component
@@ -12,6 +12,7 @@ import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
  */
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const containerVariants = {
@@ -50,14 +51,13 @@ export default function Footer() {
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-bold mb-4">Amr Ammory</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Mechanical Engineer specializing in advanced design and precision manufacturing.
-                Passionate about innovation, engineering excellence, and creating impactful solutions.
+                {t('footer.bio')}
               </p>
             </motion.div>
 
             {/* Quick Links */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <h3 className="text-xl font-bold mb-4">{t('nav.home')}</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#about" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">
@@ -89,7 +89,7 @@ export default function Footer() {
 
             {/* Contact Info */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
+              <h3 className="text-xl font-bold mb-4">{t('contact.title')}</h3>
               <div className="space-y-3 text-sm">
                 <a
                   href="mailto:amrammory13@gmail.com"
