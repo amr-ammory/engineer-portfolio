@@ -99,7 +99,7 @@ export default function Navigation() {
             onClick={() => handleScroll('#home')}
           >
             <img
-              src="/images/profile-photo.jpg"
+              src="./images/profile-photo.jpg"
               alt="Amr Ammory"
               className="w-12 h-12 rounded-lg object-cover shadow-md"
             />
