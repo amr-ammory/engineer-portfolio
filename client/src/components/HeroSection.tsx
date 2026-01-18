@@ -17,6 +17,13 @@ const heroBg = "https://files.manuscdn.com/user_upload_by_module/session_file/31
 export default function HeroSection() {
   const { language, t } = useLanguage();
   const { isDarkMode } = useDarkMode();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,14 +113,16 @@ export default function HeroSection() {
         >
           <Button
             size="lg"
-            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1"
+            onClick={() => scrollToSection('projects')}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
           >
             {t('hero.viewWork')}
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out"
+            onClick={() => scrollToSection('contact')}
+            className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out cursor-pointer"
           >
             {t('hero.getInTouch')}
           </Button>
