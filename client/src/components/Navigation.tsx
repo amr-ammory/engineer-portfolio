@@ -3,7 +3,7 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import profilePhoto from '/images/profile-photo.jpg';
+const profilePhoto = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137293024/szLlkTeuVtPSTcJc.jpg";
 
 /**
  * Navigation Component

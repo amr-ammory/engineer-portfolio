@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDarkMode } from '@/contexts/DarkModeContext';
-import heroBg from '/images/hero-bg.png';
+const heroBg = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137293024/gxlZlfVbIhzYzkJB.png";
 
 /**
  * Hero Section Component
