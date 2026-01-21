@@ -17,6 +17,10 @@ export default function AboutSection() {
   const [downloadClicked, setDownloadClicked] = useState(false);
   const [downloadClickedAr, setDownloadClickedAr] = useState(false);
 
+  // Direct download links from Google Drive
+  const CV_EN_URL = "https://drive.google.com/uc?export=download&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd";
+  const CV_AR_URL = "https://drive.google.com/uc?export=download&id=1fzLYa_25cC9p5h-RLcywrliZMXk5oWAg";
+
   const stats = [
     {
       icon: Code2,
@@ -87,14 +91,15 @@ export default function AboutSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <motion.a
-                href="/Amr_Ammory_CV.pdf"
-                download="Amr_Ammory_CV.pdf"
+                href={CV_EN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setDownloadClicked(true)}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
               >
-                Download My CV - English
+                {language === 'ar' ? 'تحميل السيرة الذاتية - إنجليزي' : 'Download My CV - English'}
                 <motion.div
                   animate={downloadClicked ? { y: [0, -5, 0] } : {}}
                   transition={{ duration: 0.6 }}
@@ -104,14 +109,15 @@ export default function AboutSection() {
                 </motion.div>
               </motion.a>
               <motion.a
-                href="/Amr_Ammory_CV_Arabic.pdf"
-                download="Amr_Ammory_CV_Arabic.pdf"
+                href={CV_AR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setDownloadClickedAr(true)}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
               >
-                Download My CV - Arabic
+                {language === 'ar' ? 'تحميل السيرة الذاتية - عربي' : 'Download My CV - Arabic'}
                 <motion.div
                   animate={downloadClickedAr ? { y: [0, -5, 0] } : {}}
                   transition={{ duration: 0.6 }}
