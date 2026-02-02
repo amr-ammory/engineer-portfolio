@@ -18,123 +18,105 @@ export const getLoginUrl = () => {
 
 /**
  * Project Links and Resources Configuration
- * All 11 SolidWorks projects from Google Drive
  */
-
-export const PROJECT_LINKS = {
-  stairClimber: {
-    title: 'Stair Climber Wheelchair',
-    driveLink: 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu',
-    mainImage: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-  },
-  millingMachine: {
-    title: 'Industrial Milling Machine',
-    driveLink: 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu',
-    mainImage: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-  },
-  vmcProject: {
-    title: 'VMC Project (IMTMA)',
-    driveLink: 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu',
-    mainImage: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-  },
-  drillingMachine: {
-    title: 'Precision Drilling Machine',
-    driveLink: 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu',
-    mainImage: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-  },
-};
+export const DRIVE_FOLDER_LINK = 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu';
 
 /**
- * All 11 SolidWorks Projects Data
+ * Helper to get direct Google Drive image link
+ */
+const getDriveImg = (id: string) => `https://drive.google.com/uc?export=view&id=${id}`;
+
+/**
+ * All SolidWorks Projects Data from Google Drive
  */
 export const ALL_PROJECTS = [
   {
     id: '1',
-    title: { en: 'Stair Climber Wheelchair - Design 1', ar: 'كرسي متحرك متسلق للدرج - تصميم 1' },
+    title: { en: 'Stair Climber Wheelchair - Final Render', ar: 'كرسي متحرك متسلق للدرج - رندر نهائي' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
+    image: getDriveImg('18ypz5ENkcd8AwrW2N4UfgDh2cMC8V3hY'),
     tags: ['SolidWorks', 'Mechanism', 'Robotics'],
     description: { en: 'Advanced planetary wheel system for stair climbing.', ar: 'نظام عجلات كوكبي متطور لتسلق الدرج.' }
   },
   {
     id: '2',
-    title: { en: 'Stair Climber Wheelchair - Design 2', ar: 'كرسي متحرك متسلق للدرج - تصميم 2' },
+    title: { en: 'Industrial Milling Machine', ar: 'آلة فريزة صناعية' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Mechanism', 'Robotics'],
-    description: { en: 'Alternative mechanism for stair climbing wheelchair.', ar: 'آلية بديلة للكرسي المتحرك المتسلق للدرج.' }
+    image: getDriveImg('1OriEzovoNJpWpnZaTgx20LJicY5C47N0'),
+    tags: ['SolidWorks', 'Manufacturing', 'Machining'],
+    description: { en: 'Detailed design of a 3-axis industrial milling machine.', ar: 'تصميم مفصل لآلة فريزة صناعية ثلاثية المحاور.' }
   },
   {
     id: '3',
-    title: { en: 'Stair Climber Wheelchair - Design 3', ar: 'كرسي متحرك متسلق للدرج - تصميم 3' },
+    title: { en: 'VMC Project IMTMA', ar: 'مشروع مركز تشغيل عمودي IMTMA' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Mechanism', 'Robotics'],
-    description: { en: 'Refined structural design for stair climbing mobility.', ar: 'تصميم إنشائي محسن للتنقل عبر الدرج.' }
+    image: getDriveImg('18ZIwuxl-d7Ni50W3AyxyeO6Tm7eobcId'),
+    tags: ['SolidWorks', 'VMC', 'Industrial'],
+    description: { en: 'Vertical Machining Center design project for IMTMA.', ar: 'مشروع تصميم مركز تشغيل عمودي لصالح IMTMA.' }
   },
   {
     id: '4',
-    title: { en: 'Stair Climber Wheelchair - Design 4', ar: 'كرسي متحرك متسلق للدرج - تصميم 4' },
+    title: { en: 'Stair Climber - Side View', ar: 'متسلق الدرج - عرض جانبي' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Mechanism', 'Robotics'],
-    description: { en: 'Optimized chassis for stair climbing wheelchair.', ar: 'هيكل محسن للكرسي المتحرك المتسلق للدرج.' }
+    image: getDriveImg('1JlloLKJvxxIHMpUGcnqGBIHPQMO8qXl-'),
+    tags: ['SolidWorks', 'Mechanism'],
+    description: { en: 'Side view showing the mechanical linkage of the climber.', ar: 'عرض جانبي يوضح الوصلات الميكانيكية للمتسلق.' }
   },
   {
     id: '5',
-    title: { en: 'Mechanical Engine Assembly', ar: 'تجميع محرك ميكانيكي' },
+    title: { en: 'Mechanical Assembly 1', ar: 'تجميع ميكانيكي 1' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Engine', 'Automotive'],
-    description: { en: 'Detailed 3D assembly of a multi-cylinder engine.', ar: 'تجميع ثلاثي الأبعاد مفصل لمحرك متعدد الأسطوانات.' }
+    image: getDriveImg('1njpdaFzER9M0Z3MunsCOeJZtAAMkxU4f'),
+    tags: ['SolidWorks', 'Assembly'],
+    description: { en: 'Complex mechanical assembly with multiple components.', ar: 'تجميع ميكانيكي معقد يضم مكونات متعددة.' }
   },
   {
     id: '6',
-    title: { en: 'Belt Drive System', ar: 'نظام نقل الحركة بالسيور' },
+    title: { en: 'Belt Drive Mechanism', ar: 'آلية نقل الحركة بالسيور' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
+    image: getDriveImg('1OEOvx5REr8BpH0AEubQu2LR4XYny2nqv'),
     tags: ['SolidWorks', 'Power Transmission'],
-    description: { en: 'Design and simulation of a mechanical belt drive.', ar: 'تصميم ومحاكاة نظام نقل حركة ميكانيكي.' }
+    description: { en: 'Design of a belt-driven power transmission system.', ar: 'تصميم نظام نقل حركة يعمل بالسيور.' }
   },
   {
     id: '7',
-    title: { en: 'Precision Gearbox', ar: 'صندوق تروس دقيق' },
+    title: { en: 'Drill Press Design', ar: 'تصميم مثقاب صناعي' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Gears', 'Transmission'],
-    description: { en: 'High-torque gearbox design with optimized gear ratios.', ar: 'تصميم صندوق تروس عالي العزم مع نسب تروس محسنة.' }
+    image: getDriveImg('1dKD7m6X15i8w_dm42kja1HLClGneiheg'),
+    tags: ['SolidWorks', 'Machinery'],
+    description: { en: 'Full design of an industrial drill press machine.', ar: 'تصميم كامل لآلة مثقاب صناعية.' }
   },
   {
     id: '8',
-    title: { en: 'Hydraulic Press Component', ar: 'مكون مكبس هيدروليكي' },
-    category: 'FEA Analysis',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'FEA', 'Hydraulics'],
-    description: { en: 'Stress analysis of hydraulic press structural parts.', ar: 'تحليل الإجهاد للأجزاء الإنشائية لمكبس هيدروليكي.' }
+    title: { en: 'Final Component with Dimensions', ar: 'المكون النهائي مع الأبعاد' },
+    category: 'Technical Documentation',
+    image: getDriveImg('1OAu1plrucLwCffJPS2pc5twWtUW26pFF'),
+    tags: ['SolidWorks', 'Drafting', 'Dimensions'],
+    description: { en: 'Technical drawing with precise manufacturing dimensions.', ar: 'رسم تقني مع أبعاد تصنيع دقيقة.' }
   },
   {
     id: '9',
-    title: { en: 'Automotive Chassis Part', ar: 'جزء من هيكل سيارة' },
+    title: { en: 'Stair Climber - Model View', ar: 'متسلق الدرج - عرض النموذج' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Automotive', 'Structural'],
-    description: { en: 'Design of high-strength automotive chassis components.', ar: 'تصميم مكونات هيكل سيارة عالية المقاومة.' }
+    image: getDriveImg('16I6TvuDpjcMONiWsczdiss-UOP2kvYVP'),
+    tags: ['SolidWorks', '3D Modeling'],
+    description: { en: '3D model view of the stair climber wheelchair.', ar: 'عرض النموذج ثلاثي الأبعاد للكرسي المتسلق للدرج.' }
   },
   {
     id: '10',
-    title: { en: 'Industrial Pump Housing', ar: 'غلاف مضخة صناعية' },
+    title: { en: 'Engine Component Render', ar: 'رندر لمكون محرك' },
     category: 'CAD Design',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['SolidWorks', 'Fluids', 'Manufacturing'],
-    description: { en: 'Complex housing design for high-pressure industrial pumps.', ar: 'تصميم غلاف معقد لمضخات صناعية عالية الضغط.' }
+    image: getDriveImg('1v6kimqNtD6O23HmrY2EUYPDNxM5G7KfT'),
+    tags: ['SolidWorks', 'Rendering', 'Automotive'],
+    description: { en: 'High-quality render of a mechanical engine part.', ar: 'رندر عالي الجودة لجزء من محرك ميكانيكي.' }
   },
   {
     id: '11',
-    title: { en: 'Technical Drawing Set', ar: 'مجموعة رسومات تقنية' },
-    category: 'Technical Documentation',
-    image: 'https://drive.google.com/uc?export=view&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
-    tags: ['AutoCAD', 'Standards', 'Documentation'],
-    description: { en: 'Comprehensive set of manufacturing drawings.', ar: 'مجموعة شاملة من رسومات التصنيع.' }
+    title: { en: 'Mechanical Design 11', ar: 'تصميم ميكانيكي 11' },
+    category: 'CAD Design',
+    image: getDriveImg('11bYOO9DKBx_L_tj2962lacX9_bEvAlcC'),
+    tags: ['SolidWorks', 'CAD'],
+    description: { en: 'Detailed CAD design of a mechanical component.', ar: 'تصميم كاد مفصل لمكون ميكانيكي.' }
   }
 ];
 
