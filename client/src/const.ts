@@ -22,19 +22,19 @@ export const getLoginUrl = () => {
 export const DRIVE_FOLDER_LINK = 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu';
 
 /**
- * Helper to get direct Google Drive image link
+ * Helper to get local project image path
  */
-const getDriveImg = (id: string) => `https://drive.google.com/uc?export=view&id=${id}`;
+const getProjectImg = (name: string) => `/assets/projects/${name}`;
 
 /**
- * All SolidWorks Projects Data from Google Drive
+ * All SolidWorks Projects Data - Using Local Assets for Stability
  */
 export const ALL_PROJECTS = [
   {
     id: '1',
     title: { en: 'Stair Climber Wheelchair - Final Render', ar: 'كرسي متحرك متسلق للدرج - رندر نهائي' },
     category: 'CAD Design',
-    image: getDriveImg('18ypz5ENkcd8AwrW2N4UfgDh2cMC8V3hY'),
+    image: getProjectImg('stair_climber_final.jpg'),
     tags: ['SolidWorks', 'Mechanism', 'Robotics'],
     description: { en: 'Advanced planetary wheel system for stair climbing.', ar: 'نظام عجلات كوكبي متطور لتسلق الدرج.' }
   },
@@ -42,7 +42,7 @@ export const ALL_PROJECTS = [
     id: '2',
     title: { en: 'Industrial Milling Machine', ar: 'آلة فريزة صناعية' },
     category: 'CAD Design',
-    image: getDriveImg('1OriEzovoNJpWpnZaTgx20LJicY5C47N0'),
+    image: getProjectImg('milling_machine.jpg'),
     tags: ['SolidWorks', 'Manufacturing', 'Machining'],
     description: { en: 'Detailed design of a 3-axis industrial milling machine.', ar: 'تصميم مفصل لآلة فريزة صناعية ثلاثية المحاور.' }
   },
@@ -50,7 +50,7 @@ export const ALL_PROJECTS = [
     id: '3',
     title: { en: 'VMC Project IMTMA', ar: 'مشروع مركز تشغيل عمودي IMTMA' },
     category: 'CAD Design',
-    image: getDriveImg('18ZIwuxl-d7Ni50W3AyxyeO6Tm7eobcId'),
+    image: getProjectImg('vmc_project.jpg'),
     tags: ['SolidWorks', 'VMC', 'Industrial'],
     description: { en: 'Vertical Machining Center design project for IMTMA.', ar: 'مشروع تصميم مركز تشغيل عمودي لصالح IMTMA.' }
   },
@@ -58,15 +58,15 @@ export const ALL_PROJECTS = [
     id: '4',
     title: { en: 'Stair Climber - Side View', ar: 'متسلق الدرج - عرض جانبي' },
     category: 'CAD Design',
-    image: getDriveImg('1JlloLKJvxxIHMpUGcnqGBIHPQMO8qXl-'),
+    image: getProjectImg('stair_climber_side.jpg'),
     tags: ['SolidWorks', 'Mechanism'],
     description: { en: 'Side view showing the mechanical linkage of the climber.', ar: 'عرض جانبي يوضح الوصلات الميكانيكية للمتسلق.' }
   },
   {
     id: '5',
-    title: { en: 'Mechanical Assembly 1', ar: 'تجميع ميكانيكي 1' },
+    title: { en: 'Mechanical Assembly', ar: 'تجميع ميكانيكي' },
     category: 'CAD Design',
-    image: getDriveImg('1njpdaFzER9M0Z3MunsCOeJZtAAMkxU4f'),
+    image: getProjectImg('mechanical_assembly.jpg'),
     tags: ['SolidWorks', 'Assembly'],
     description: { en: 'Complex mechanical assembly with multiple components.', ar: 'تجميع ميكانيكي معقد يضم مكونات متعددة.' }
   },
@@ -74,7 +74,7 @@ export const ALL_PROJECTS = [
     id: '6',
     title: { en: 'Belt Drive Mechanism', ar: 'آلية نقل الحركة بالسيور' },
     category: 'CAD Design',
-    image: getDriveImg('1OEOvx5REr8BpH0AEubQu2LR4XYny2nqv'),
+    image: getProjectImg('belt_drive.jpg'),
     tags: ['SolidWorks', 'Power Transmission'],
     description: { en: 'Design of a belt-driven power transmission system.', ar: 'تصميم نظام نقل حركة يعمل بالسيور.' }
   },
@@ -82,7 +82,7 @@ export const ALL_PROJECTS = [
     id: '7',
     title: { en: 'Drill Press Design', ar: 'تصميم مثقاب صناعي' },
     category: 'CAD Design',
-    image: getDriveImg('1dKD7m6X15i8w_dm42kja1HLClGneiheg'),
+    image: getProjectImg('drill_press.jpg'),
     tags: ['SolidWorks', 'Machinery'],
     description: { en: 'Full design of an industrial drill press machine.', ar: 'تصميم كامل لآلة مثقاب صناعية.' }
   },
@@ -90,7 +90,7 @@ export const ALL_PROJECTS = [
     id: '8',
     title: { en: 'Final Component with Dimensions', ar: 'المكون النهائي مع الأبعاد' },
     category: 'Technical Documentation',
-    image: getDriveImg('1OAu1plrucLwCffJPS2pc5twWtUW26pFF'),
+    image: getProjectImg('technical_drawing.jpg'),
     tags: ['SolidWorks', 'Drafting', 'Dimensions'],
     description: { en: 'Technical drawing with precise manufacturing dimensions.', ar: 'رسم تقني مع أبعاد تصنيع دقيقة.' }
   },
@@ -98,7 +98,7 @@ export const ALL_PROJECTS = [
     id: '9',
     title: { en: 'Stair Climber - Model View', ar: 'متسلق الدرج - عرض النموذج' },
     category: 'CAD Design',
-    image: getDriveImg('16I6TvuDpjcMONiWsczdiss-UOP2kvYVP'),
+    image: getProjectImg('stair_climber_model.jpg'),
     tags: ['SolidWorks', '3D Modeling'],
     description: { en: '3D model view of the stair climber wheelchair.', ar: 'عرض النموذج ثلاثي الأبعاد للكرسي المتسلق للدرج.' }
   },
@@ -106,7 +106,7 @@ export const ALL_PROJECTS = [
     id: '10',
     title: { en: 'Engine Component Render', ar: 'رندر لمكون محرك' },
     category: 'CAD Design',
-    image: getDriveImg('1v6kimqNtD6O23HmrY2EUYPDNxM5G7KfT'),
+    image: getProjectImg('engine_render.jpg'),
     tags: ['SolidWorks', 'Rendering', 'Automotive'],
     description: { en: 'High-quality render of a mechanical engine part.', ar: 'رندر عالي الجودة لجزء من محرك ميكانيكي.' }
   },
@@ -114,7 +114,7 @@ export const ALL_PROJECTS = [
     id: '11',
     title: { en: 'Mechanical Design 11', ar: 'تصميم ميكانيكي 11' },
     category: 'CAD Design',
-    image: getDriveImg('11bYOO9DKBx_L_tj2962lacX9_bEvAlcC'),
+    image: getProjectImg('mechanical_design_11.jpg'),
     tags: ['SolidWorks', 'CAD'],
     description: { en: 'Detailed CAD design of a mechanical component.', ar: 'تصميم كاد مفصل لمكون ميكانيكي.' }
   }
