@@ -6,21 +6,15 @@ import { ALL_PROJECTS } from '@/const';
 
 /**
  * Projects Section Component - Enhanced Version
- * Design Philosophy: Modern Industrial with Advanced Animations
- * - Project cards with advanced hover effects and animations
- * - Smooth entrance animations with stagger effect
- * - Interactive elements with framer-motion
- * - Responsive grid layout
- * - Links to project details
- * - FULLY BILINGUAL: All text uses translations for Arabic/English support
+ * Updated to show all 11 projects from the portfolio
  */
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
   const t = translations[language].projects;
 
-  // Use the real projects from const.ts, focusing on CAD Design for the featured section
-  const featuredProjects = ALL_PROJECTS.slice(0, 6).map((project, index) => {
+  // Use all projects from const.ts
+  const featuredProjects = ALL_PROJECTS.map((project, index) => {
     const colors = [
       'from-blue-500 to-cyan-500',
       'from-orange-500 to-red-500',
@@ -121,7 +115,9 @@ export default function ProjectsSection() {
               </motion.div>
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
-              {t.subtitle}
+              {language === 'ar' 
+                ? 'استكشف كافة مشاريعي الـ 11 المصممة ببرنامج SolidWorks والتصاميم المتقدمة'
+                : 'Explore all my 11 SolidWorks engineering projects and advanced designs'}
             </p>
           </motion.div>
 
