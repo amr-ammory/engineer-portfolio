@@ -28,7 +28,7 @@ const getProjectImg = (name: string) => `/assets/projects/${name}`;
 
 /**
  * All SolidWorks Projects Data - Using Local Assets for Stability
- * Total 11 Projects
+ * Total 11 Projects - Cleaned and Verified
  */
 export const ALL_PROJECTS = [
   {
