@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDarkMode } from '@/contexts/DarkModeContext';
+import { SOCIAL_LINKS } from '@/const';
+
 const heroBg = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137293024/gxlZlfVbIhzYzkJB.png";
 
 /**
@@ -118,6 +120,18 @@ export default function HeroSection() {
           >
             {t('hero.viewWork')}
           </Button>
+          
+          {/* WhatsApp Button */}
+          <a
+            href={SOCIAL_LINKS.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+          >
+            <MessageCircle className="w-5 h-5" />
+            {language === 'ar' ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
+          </a>
+
           <Button
             size="lg"
             variant="outline"
