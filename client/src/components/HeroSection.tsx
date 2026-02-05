@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useDarkMode } from '@/contexts/DarkModeContext';
@@ -111,7 +111,7 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 mb-16"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16"
         >
           <Button
             size="lg"
@@ -129,7 +129,16 @@ export default function HeroSection() {
             className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5" />
-            {language === 'ar' ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
+            {language === 'ar' ? 'واتساب' : 'WhatsApp'}
+          </a>
+
+          {/* Direct Call Button */}
+          <a
+            href="tel:00963983952896"
+            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+          >
+            <Phone className="w-5 h-5" />
+            {language === 'ar' ? 'اتصال مباشر' : 'Direct Call'}
           </a>
 
           <Button
