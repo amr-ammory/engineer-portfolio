@@ -142,7 +142,7 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://linkedin.com/in/amr-ammory',
   github: 'https://github.com/amr-ammory',
   email: 'amrammory13@gmail.com',
-  whatsapp: 'https://wa.me/963934842344',
+  whatsapp: 'https://wa.me/963983952896',
 };
 
 /**
