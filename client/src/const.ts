@@ -24,7 +24,7 @@ export const DRIVE_FOLDER_LINK = 'https://drive.google.com/drive/folders/1I2WsU8
 /**
  * Helper to get local project image path
  */
-const getProjectImg = (name: string) => `/assets/projects/${name}`;
+const getProjectImg = (name: string) => `assets/projects/${name}`;
 
 /**
  * All SolidWorks Projects Data - Using Local Assets for Stability
