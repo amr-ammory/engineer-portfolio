@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
@@ -19,8 +19,11 @@ export default function GallerySection() {
 
   const categories = ['all', 'CAD Design', 'FEA Analysis', 'Technical Documentation'];
 
-  const filteredImages =
-    selectedCategory === 'all' ? ALL_PROJECTS : ALL_PROJECTS.filter((img) => img.category === selectedCategory);
+  // Use useMemo to ensure filtered list is stable and correctly calculated
+  const filteredImages = useMemo(() => {
+    if (selectedCategory === 'all') return ALL_PROJECTS;
+    return ALL_PROJECTS.filter((img) => img.category === selectedCategory);
+  }, [selectedCategory]);
 
   const handlePrevImage = () => {
     const newIndex = currentImageIndex === 0 ? filteredImages.length - 1 : currentImageIndex - 1;
@@ -107,35 +110,41 @@ export default function GallerySection() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {filteredImages.map((image, index) => (
-              <motion.div
-                key={image.id}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                onClick={() => openImage(image, index)}
-                className="group relative cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={image.image}
-                    alt={image.title[language as 'en' | 'ar']}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute top-3 right-3 px-2 py-1 bg-orange-600 text-white text-[10px] font-bold rounded uppercase">
-                    {image.category}
+            <AnimatePresence mode="popLayout">
+              {filteredImages.map((image, index) => (
+                <motion.div
+                  key={image.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  variants={itemVariants}
+                  whileHover={{ y: -5 }}
+                  onClick={() => openImage(image, index)}
+                  className="group relative cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={image.image}
+                      alt={image.title[language as 'en' | 'ar']}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute top-3 right-3 px-2 py-1 bg-orange-600 text-white text-[10px] font-bold rounded uppercase">
+                      {image.category}
+                    </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">
-                    {image.title[language as 'en' | 'ar']}
-                  </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
-                    {image.description[language as 'en' | 'ar']}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="p-4">
+                    <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">
+                      {image.title[language as 'en' | 'ar']}
+                    </h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                      {image.description[language as 'en' | 'ar']}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </motion.div>
       </div>
