@@ -1,8 +1,24 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Calendar, User, ArrowRight, BookOpen } from 'lucide-react';
+import { Calendar, User, ArrowRight, BookOpen, Cpu } from 'lucide-react';
 
 const blogPosts = [
+  {
+    id: 4,
+    title: {
+      en: "Next-Gen Tracked Wheelchair: Beyond SCEWO Technology",
+      ar: "الجيل القادم من الكراسي الجنزيرية: ما بعد تقنية SCEWO"
+    },
+    excerpt: {
+      en: "Developing an advanced tracked system with motion and orientation sensors for ultimate stair-climbing stability.",
+      ar: "تطوير نظام جنزيري متطور مزود بحساسات حركة واتجاهات لتحقيق أقصى درجات الاستقرار عند تسلق الدرج."
+    },
+    date: "2024-02-08",
+    author: "Amr Ammory",
+    category: { en: "Innovation", ar: "ابتكار" },
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=800",
+    featured: true
+  },
   {
     id: 1,
     title: {
@@ -107,7 +123,7 @@ export default function BlogSection() {
               <motion.article
                 key={post.id}
                 variants={itemVariants}
-                className="group bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300"
+                className={`group bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border ${post.featured ? 'border-orange-500 ring-1 ring-orange-500' : 'border-gray-100 dark:border-slate-700'} hover:shadow-xl transition-all duration-300`}
               >
                 <div className="relative h-56 overflow-hidden">
                   <img
@@ -115,10 +131,16 @@ export default function BlogSection() {
                     alt={post.title[language as 'en' | 'ar']}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <span className="px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full uppercase">
                       {post.category[language as 'en' | 'ar']}
                     </span>
+                    {post.featured && (
+                      <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase flex items-center gap-1">
+                        <Cpu className="w-3 h-3" />
+                        {language === 'ar' ? 'متطور' : 'Advanced'}
+                      </span>
+                    )}
                   </div>
                 </div>
 
