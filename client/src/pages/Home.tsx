@@ -5,6 +5,7 @@ import ServicesAndCertificationsSection from '@/components/ServicesAndCertificat
 import SkillsSection from '@/components/SkillsSection';
 import GallerySection from '@/components/GallerySection';
 import ProjectsSection from '@/components/ProjectsSection';
+import BlogSection from '@/components/BlogSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -54,6 +55,11 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects">
           <ProjectsSection />
+        </section>
+
+        {/* Blog Section */}
+        <section id="blog">
+          <BlogSection />
         </section>
 
         {/* Experience Section */}

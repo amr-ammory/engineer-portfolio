@@ -27,6 +27,7 @@ export default function Navigation() {
     { label: t('nav.skills'), href: '#skills', id: 'skills' },
     { label: language === 'ar' ? 'المعرض' : 'Gallery', href: '#gallery', id: 'gallery' },
     { label: t('nav.projects'), href: '#projects', id: 'projects' },
+    { label: language === 'ar' ? 'المدونة' : 'Blog', href: '#blog', id: 'blog' },
     { label: t('nav.experience'), href: '#experience', id: 'experience' },
     { label: t('nav.contact'), href: '#contact', id: 'contact' },
   ];
