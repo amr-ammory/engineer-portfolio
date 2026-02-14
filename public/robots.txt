@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow crawling of API endpoints
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://amr-ammory.com/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1

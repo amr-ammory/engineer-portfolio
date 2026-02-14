@@ -1,0 +1,31 @@
+{
+  "name": "Amr Ammory - Mechanical Engineer Portfolio",
+  "short_name": "Amr Ammory",
+  "description": "Professional portfolio of Amr Ammory, a mechanical engineer specializing in advanced CAD design, FEA analysis, and precision manufacturing",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a202c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "engineering", "professional"],
+  "lang": "en-US"
+}
