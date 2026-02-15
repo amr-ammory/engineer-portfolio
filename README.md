@@ -1,14 +1,5 @@
-# Amr Ammory - Mechanical Engineer Portfolio
+# Engineer Portfolio
 
-Professional portfolio website showcasing mechanical engineering expertise, projects, and experience.
+Professional portfolio website for mechanical engineering projects.
 
-## Live Site
-https://amr-ammory.github.io/engineer-portfolio/
-
-## Features
-- Responsive design
-- SEO optimized
-- Project showcase
-- Contact information
-
-Built with React, TypeScript, and Vite.
+Live site: https://amr-ammory.github.io/engineer-portfolio/
