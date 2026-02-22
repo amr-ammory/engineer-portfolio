@@ -37,11 +37,6 @@ export default function Home() {
           <AboutSection />
         </section>
 
-        {/* Services and Certifications Section */}
-        <section id="services">
-          <ServicesAndCertificationsSection />
-        </section>
-
         {/* Skills Section */}
         <section id="skills">
           <SkillsSection />
@@ -60,6 +55,11 @@ export default function Home() {
         {/* Blog Section */}
         <section id="blog">
           <BlogSection />
+        </section>
+
+        {/* Services and Certifications Section */}
+        <section id="services">
+          <ServicesAndCertificationsSection />
         </section>
 
         {/* Experience Section */}
