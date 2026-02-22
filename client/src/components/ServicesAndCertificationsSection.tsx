@@ -145,6 +145,7 @@ export default function ServicesAndCertificationsSection() {
           >
             {services.map((service, index) => {
               const Icon = service.icon;
+              const description = t[service.descKey as keyof typeof t];
               return (
                 <motion.div
                   key={index}
@@ -165,9 +166,11 @@ export default function ServicesAndCertificationsSection() {
                       </p>
                     </div>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                    {t[service.descKey as keyof typeof t]}
-                  </p>
+                  {description && (
+                    <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                      {description}
+                    </p>
+                  )}
                   <div className="pt-4 border-t-2 border-gray-300 dark:border-slate-600 border-opacity-50">
                     <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600" />
