@@ -3,7 +3,6 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesAndCertificationsSection from '@/components/ServicesAndCertificationsSection';
 import SkillsSection from '@/components/SkillsSection';
-import GallerySection from '@/components/GallerySection';
 import ProjectsSection from '@/components/ProjectsSection';
 import BlogSection from '@/components/BlogSection';
 import ExperienceSection from '@/components/ExperienceSection';
@@ -40,11 +39,6 @@ export default function Home() {
         {/* Skills Section */}
         <section id="skills">
           <SkillsSection />
-        </section>
-
-        {/* Gallery Section */}
-        <section id="gallery">
-          <GallerySection />
         </section>
 
         {/* Projects Section */}
