@@ -151,21 +151,7 @@ export default function ProjectsSection() {
             ))}
           </motion.div>
 
-          {/* CTA */}
-          <motion.div
-            variants={itemVariants}
-            className="p-8 md:p-12 bg-orange-600 rounded-2xl text-white text-center"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">{t.interested}</h3>
-            <p className="text-orange-100 mb-8 max-w-2xl mx-auto">{t.interestedDesc}</p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-orange-600 font-bold rounded-lg hover:bg-orange-50 transition-colors"
-            >
-              {language === 'ar' ? 'تواصل معي' : 'Get In Touch'}
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
