@@ -1,18 +1,16 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { Mail, Phone, Linkedin, MessageCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/locales/translations';
 
 /**
- * Contact Section Component
- * Design Philosophy: Modern Industrial
- * - Contact information with icons
- * - Contact form with validation
- * - Social media links
- * - Responsive layout
- * - FULLY BILINGUAL: All text uses translations for Arabic/English support
+ * Contact Section Component - Redesigned Version
+ * Design Philosophy: Clean, Action-Oriented, Compact
+ * - Quick contact cards (WhatsApp, Phone, Email)
+ * - Simplified contact form
+ * - Direct action buttons
  */
 
 export default function ContactSection() {
@@ -21,43 +19,41 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
 
-  const contactInfo = [
+  const quickContact = [
+    {
+      icon: MessageCircle,
+      label: t.whatsapp,
+      value: '+963 983 952 896',
+      desc: t.whatsappMsg,
+      link: 'https://wa.me/963983952896',
+      color: 'bg-green-500',
+      lightBg: 'bg-green-50 dark:bg-green-900/20',
+      textColor: 'text-green-600 dark:text-green-400',
+    },
+    {
+      icon: Phone,
+      label: t.call,
+      value: '+963 983 952 896',
+      desc: t.callMsg,
+      link: 'tel:+963983952896',
+      color: 'bg-blue-500',
+      lightBg: 'bg-blue-50 dark:bg-blue-900/20',
+      textColor: 'text-blue-600 dark:text-blue-400',
+    },
     {
       icon: Mail,
       label: 'Email',
       value: 'amrammory13@gmail.com',
+      desc: t.emailMsg,
       link: 'mailto:amrammory13@gmail.com',
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+963 983 952 896',
-      link: 'tel:+963983952896',
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Aleppo, Syria',
-      link: '#',
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      link: 'https://linkedin.com/in/amrammory',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      link: 'mailto:amrammory13@gmail.com',
+      color: 'bg-orange-500',
+      lightBg: 'bg-orange-50 dark:bg-orange-900/20',
+      textColor: 'text-orange-600 dark:text-orange-400',
     },
   ];
 
@@ -88,16 +84,16 @@ export default function ContactSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' as const },
+      transition: { duration: 0.5, ease: 'easeOut' as const },
     },
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-white dark:bg-slate-900">
+    <section id="contact" className="relative py-20 md:py-32 bg-white dark:bg-slate-900 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -107,171 +103,120 @@ export default function ContactSection() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="mb-16 text-center">
-            <div className="flex items-center justify-center gap-4 mb-6">
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-8 bg-orange-600 rounded-full" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {t.title}
               </h2>
-              <div className="w-1 h-8 bg-orange-600 rounded-full" />
             </div>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
               {t.subtitle}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-                {t.contactInfo}
-              </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Quick Contact Cards */}
+            <div className="lg:col-span-5 space-y-4">
+              {quickContact.map((contact, index) => {
+                const Icon = contact.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={contact.link}
+                    target={contact.label === 'Email' ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    variants={itemVariants}
+                    whileHover={{ x: 8 }}
+                    className={`flex items-center gap-4 p-4 rounded-xl border border-gray-100 dark:border-slate-800 ${contact.lightBg} transition-all duration-300 group`}
+                  >
+                    <div className={`p-3 ${contact.color} text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {contact.label}
+                      </h4>
+                      <p className="text-base font-bold text-gray-900 dark:text-white">
+                        {contact.value}
+                      </p>
+                    </div>
+                    <ArrowRight className={`w-5 h-5 ${contact.textColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  </motion.a>
+                );
+              })}
 
-              {/* Contact Details */}
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={info.link}
-                      variants={itemVariants}
-                      className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors duration-300"
-                    >
-                      <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-lg">
-                        <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">
-                          {info.label}
-                        </p>
-                        <p className="text-lg font-bold text-gray-900 dark:text-white">
-                          {info.value}
-                        </p>
-                      </div>
-                    </motion.a>
-                  );
-                })}
-              </div>
+              {/* Social Link */}
+              <motion.div variants={itemVariants} className="pt-4">
+                <a
+                  href="https://linkedin.com/in/amrammory"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition-all duration-300"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  LinkedIn Profile
+                </a>
+              </motion.div>
+            </div>
 
-              {/* Social Links */}
-              <div className="pt-8 border-t border-gray-200 dark:border-slate-700">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-                  {t.connectWithMe}
-                </h4>
-                <div className="flex gap-4">
-                  {socialLinks.map((social, index) => {
-                    const Icon = social.icon;
-                    return (
-                      <motion.a
-                        key={index}
-                        href={social.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        variants={itemVariants}
-                        className="p-3 bg-gray-100 dark:bg-slate-800 rounded-lg hover:bg-orange-600 hover:text-white transition-all duration-300"
-                        title={social.label}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </motion.a>
-                    );
-                  })}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Contact Form */}
+            {/* Simplified Form */}
             <motion.div
               variants={itemVariants}
-              className="bg-gray-50 dark:bg-slate-800 p-8 rounded-lg"
+              className="lg:col-span-7 bg-gray-50 dark:bg-slate-800/50 p-6 md:p-8 rounded-2xl border border-gray-100 dark:border-slate-800"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                 {t.sendMessage}
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    {language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
-                  </label>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 transition-ring duration-300"
-                    placeholder={t.name}
+                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 dark:text-white rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all"
+                    placeholder={language === 'ar' ? 'الاسم' : 'Name'}
                   />
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    {language === 'ar' ? 'عنوان البريد الإلكتروني' : 'Email Address'}
-                  </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 transition-ring duration-300"
-                    placeholder={t.email}
+                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 dark:text-white rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all"
+                    placeholder={language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
                   />
                 </div>
 
-                {/* Subject Field */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    {language === 'ar' ? 'الموضوع' : 'Subject'}
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 transition-ring duration-300"
-                    placeholder={t.subject}
-                  />
-                </div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 dark:text-white rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all resize-none"
+                  placeholder={t.message}
+                />
 
-                {/* Message Field */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    {language === 'ar' ? 'الرسالة' : 'Message'}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600 transition-ring duration-300 resize-none"
-                    placeholder={t.message}
-                  />
-                </div>
-
-                {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 font-semibold transition-all duration-300"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-600/20 transition-all active:scale-[0.98]"
                 >
                   {t.send}
                 </Button>
 
-                {/* Success Message */}
                 {submitted && (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg text-green-700 dark:text-green-300 text-sm"
+                    className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-600 dark:text-green-400 text-center font-medium"
                   >
                     {language === 'ar'
-                      ? 'شكراً لرسالتك! سأرد عليك قريباً.'
-                      : "Thank you for your message! I'll get back to you soon."}
+                      ? 'تم الإرسال بنجاح!'
+                      : "Sent successfully!"}
                   </motion.div>
                 )}
               </form>

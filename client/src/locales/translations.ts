@@ -171,6 +171,11 @@ export const translations = {
       subject: 'Project inquiry',
       message: 'Tell me about your project...',
       send: 'Send Message',
+      whatsapp: 'WhatsApp',
+      whatsappMsg: 'Chat on WhatsApp',
+      call: 'Call',
+      callMsg: 'Call me directly',
+      emailMsg: 'Send an email',
     },
     footer: {
       bio: 'Mechanical Engineer specializing in advanced design and precision manufacturing. Passionate about innovation, engineering excellence, and creating impactful solutions.',
@@ -351,6 +356,11 @@ export const translations = {
       subject: 'استفسار عن مشروع',
       message: 'أخبرني عن مشروعك...',
       send: 'إرسال الرسالة',
+      whatsapp: 'واتساب',
+      whatsappMsg: 'تواصل عبر واتساب',
+      call: 'اتصال',
+      callMsg: 'اتصل بي مباشرة',
+      emailMsg: 'أرسل بريداً إلكترونياً',
     },
     footer: {
       bio: 'مهندس ميكانيكي متخصص في التصميم المتقدم والتصنيع الدقيق. شغوف بالابتكار والتميز الهندسي وإنشاء حلول مؤثرة.',
