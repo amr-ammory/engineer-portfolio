@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Briefcase, CheckCircle } from 'lucide-react';
+import { Award, Briefcase, CheckCircle, Users, Shield } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/locales/translations';
 
@@ -74,6 +74,21 @@ export default function ExperienceSection() {
       titleKey: 'automotive2',
       issuerKey: 'nrc',
       icon: CheckCircle,
+    },
+    {
+      titleKey: 'pmpTitle',
+      issuerKey: 'pmpIssuer',
+      icon: Award,
+    },
+    {
+      titleKey: 'hrmTitle',
+      issuerKey: 'hrmIssuer',
+      icon: Users,
+    },
+    {
+      titleKey: 'atsAuditor',
+      issuerKey: 'atsAuditorIssuer',
+      icon: Shield,
     },
   ];
 

@@ -70,29 +70,7 @@ export default function ServicesAndCertificationsSection() {
     },
   ];
 
-  const certifications = [
-    {
-      icon: Award,
-      titleKey: 'pmpTitle',
-      issuerKey: 'pmpIssuer',
-      descKey: 'pmpDesc',
-      verified: true,
-    },
-    {
-      icon: Users,
-      titleKey: 'hrmTitle',
-      issuerKey: 'hrmIssuer',
-      descKey: 'hrmDesc',
-      verified: true,
-    },
-    {
-      icon: Shield,
-      titleKey: 'atsAuditor',
-      issuerKey: 'atsAuditorIssuer',
-      descKey: 'atsAuditorDesc',
-      verified: true,
-    },
-  ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -182,52 +160,7 @@ export default function ServicesAndCertificationsSection() {
             })}
           </motion.div>
 
-          {/* Certifications Section */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-4">
-              <span className="w-1 h-8 bg-orange-600 rounded-full" />
-              {t.certifications}
-            </h3>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
-              variants={containerVariants}
-            >
-              {certifications.map((cert, index) => {
-                const Icon = cert.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{ y: -6, boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}
-                    className="p-6 bg-white dark:bg-slate-800 rounded-lg border-2 border-gray-200 dark:border-slate-700 hover:border-orange-400 dark:hover:border-orange-500 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-lg">
-                        <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                      </div>
-                      {cert.verified && (
-                        <div className="ml-auto">
-                          <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
-                            <CheckCircle className="w-3 h-3" />
-                            {language === 'ar' ? 'معتمد' : 'Verified'}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                      {t[cert.titleKey as keyof typeof t]}
-                    </h4>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold mb-3">
-                      {t[cert.issuerKey as keyof typeof t]}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      {t[cert.descKey as keyof typeof t]}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </motion.div>
+
 
           {/* Key Highlights */}
           <motion.div
