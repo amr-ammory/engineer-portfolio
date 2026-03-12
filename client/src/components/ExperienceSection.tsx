@@ -113,7 +113,7 @@ export default function ExperienceSection() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <section className="relative py-10 md:py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -123,8 +123,8 @@ export default function ExperienceSection() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* Experience Section */}
-          <motion.div variants={itemVariants} className="mb-20">
-            <div className="flex items-center gap-4 mb-12">
+          <motion.div variants={itemVariants} className="mb-10">
+            <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {t.title}
@@ -173,7 +173,7 @@ export default function ExperienceSection() {
 
           {/* Certifications Section */}
           <motion.div variants={itemVariants}>
-            <div className="flex items-center gap-4 mb-12">
+            <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {t.certifications}
@@ -213,7 +213,7 @@ export default function ExperienceSection() {
           </motion.div>
 
           {/* Education Section */}
-          <motion.div variants={itemVariants} className="mt-20 p-8 bg-blue-50 dark:bg-slate-800 rounded-lg">
+          <motion.div variants={itemVariants} className="mt-10 p-8 bg-blue-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               {t.education}
             </h3>

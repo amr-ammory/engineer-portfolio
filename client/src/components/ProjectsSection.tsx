@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
+    <section id="projects" className="relative py-10 md:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-7xl mx-auto"
@@ -79,8 +79,8 @@ export default function ProjectsSection() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {t.title}
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
 
           {/* Projects Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8"
             variants={containerVariants}
           >
             {featuredProjects.map((project, index) => (
@@ -126,7 +126,7 @@ export default function ProjectsSection() {
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}

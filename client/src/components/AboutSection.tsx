@@ -69,7 +69,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-white dark:bg-gray-900">
+    <section className="relative py-10 md:py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -79,7 +79,7 @@ export default function AboutSection() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="mb-16 md:mb-24">
+          <motion.div variants={itemVariants} className="mb-8 md:mb-12">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-10 bg-orange-600 rounded-full" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
@@ -131,7 +131,7 @@ export default function AboutSection() {
 
           {/* Stats Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
             variants={containerVariants}
           >
             {stats.map((stat, index) => {
