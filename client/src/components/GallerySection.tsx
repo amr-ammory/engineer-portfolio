@@ -83,8 +83,8 @@ export default function GallerySection() {
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               {language === 'ar'
-                ? 'استكشف كافة مشاريعي الـ 11 المصممة ببرنامج SolidWorks والتصاميم المتقدمة'
-                : 'Explore all my 11 SolidWorks engineering projects and advanced designs'}
+                ? 'استكشف كافة مشاريعي الهندسية المصممة ببرنامج SolidWorks والتصاميم المتقدمة'
+                : 'Explore all my SolidWorks engineering projects and advanced designs'}
             </p>
           </div>
 

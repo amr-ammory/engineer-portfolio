@@ -118,6 +118,46 @@ export const ALL_PROJECTS = [
     image: getProjectImg('mechanical_design_11.jpg'),
     tags: ['SolidWorks', 'CAD'],
     description: { en: 'Detailed CAD design of a mechanical component.', ar: 'تصميم كاد مفصل لمكون ميكانيكي.' }
+  },
+  {
+    id: '12',
+    title: { en: 'Heat Exchanger - Assembly View', ar: 'مبادل حراري - عرض التجميع' },
+    category: 'CAD Design',
+    image: 'https://drive.google.com/uc?export=view&id=1m3WiX1R5V-A4X2E3a03xEonS4xBt9oV2',
+    tags: ['SolidWorks', 'Heat Transfer', 'Industrial'],
+    description: { en: 'Complete assembly of a shell and tube heat exchanger.', ar: 'تجميع كامل لمبادل حراري من نوع القشرة والأنبوب.' }
+  },
+  {
+    id: '13',
+    title: { en: 'Heat Exchanger - Section View', ar: 'مبادل حراري - مقطع عرضي' },
+    category: 'CAD Design',
+    image: 'https://drive.google.com/uc?export=view&id=1nw5UnE3e6ffRS97k_OWFBEzGbCn-pnrt',
+    tags: ['SolidWorks', 'FEA', 'Internal Flow'],
+    description: { en: 'Internal section view showing tube arrangement and baffles.', ar: 'مقطع عرضي داخلي يوضح ترتيب الأنابيب والحواجز.' }
+  },
+  {
+    id: '14',
+    title: { en: 'Heat Exchanger - Detailed Component', ar: 'مبادل حراري - تفاصيل المكونات' },
+    category: 'CAD Design',
+    image: 'https://drive.google.com/uc?export=view&id=1NEgrBUcf3MgACx4Ur28Nb57911wq49Xr',
+    tags: ['SolidWorks', 'Precision Design'],
+    description: { en: 'High-precision design of heat exchanger end plates.', ar: 'تصميم عالي الدقة لألواح نهاية المبادل الحراري.' }
+  },
+  {
+    id: '15',
+    title: { en: 'Grain Purification System - CAD', ar: 'نظام تنقية الحبوب - كاد' },
+    category: 'CAD Design',
+    image: 'https://drive.google.com/uc?export=view&id=1iNDUhS0ueLXifnxxbRT4TJemICAiUK5i',
+    tags: ['SolidWorks', 'Agricultural Engineering', 'Machinery'],
+    description: { en: 'Automated grain purification and sorting machine design.', ar: 'تصميم آلة أوتوماتيكية لتنقية وفرز الحبوب.' }
+  },
+  {
+    id: '16',
+    title: { en: 'Grain Purification - Structural Analysis', ar: 'تنقية الحبوب - التحليل الإنشائي' },
+    category: 'FEA Analysis',
+    image: 'https://drive.google.com/uc?export=view&id=1Dqzsf1-D5isJtQa6ODMjiGKOIJ-rbbAB',
+    tags: ['ANSYS', 'Stress Analysis', 'Simulation'],
+    description: { en: 'Stress and vibration analysis of the purification machine frame.', ar: 'تحليل الإجهاد والاهتزاز لهيكل آلة التنقية.' }
   }
 ];
 
