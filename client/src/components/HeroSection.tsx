@@ -111,12 +111,12 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16"
+          className="grid grid-cols-2 sm:flex sm:flex-row flex-wrap justify-center gap-2 md:gap-4 mb-16 w-full max-w-lg sm:max-w-none px-2"
         >
           <Button
             size="lg"
             onClick={() => scrollToSection('projects')}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-3 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer w-full"
           >
             {t('hero.viewWork')}
           </Button>
@@ -126,7 +126,7 @@ export default function HeroSection() {
             href={SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-3 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer w-full"
           >
             <MessageCircle className="w-5 h-5" />
             {language === 'ar' ? 'واتساب' : 'WhatsApp'}
@@ -135,7 +135,7 @@ export default function HeroSection() {
           {/* Direct Call Button */}
           <a
             href="tel:00963983952896"
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 cursor-pointer w-full"
           >
             <Phone className="w-5 h-5" />
             {language === 'ar' ? 'اتصال مباشر' : 'Direct Call'}
@@ -145,7 +145,7 @@ export default function HeroSection() {
             size="lg"
             variant="outline"
             onClick={() => scrollToSection('contact')}
-            className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ease-out cursor-pointer"
+            className="border-white text-white hover:bg-white hover:text-blue-900 px-3 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 ease-out cursor-pointer w-full"
           >
             {t('hero.getInTouch')}
           </Button>
