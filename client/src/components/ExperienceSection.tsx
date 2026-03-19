@@ -182,7 +182,7 @@ export default function ExperienceSection() {
 
             {/* Certifications Grid */}
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6"
               variants={containerVariants}
             >
               {certifications.map((cert, index) => {
@@ -191,17 +191,17 @@ export default function ExperienceSection() {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="p-6 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    className="p-3 md:p-6 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-lg">
-                        <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                    <div className="flex flex-col md:flex-row items-start gap-2 md:gap-4 mb-2 md:mb-4">
+                      <div className="p-2 md:p-3 bg-orange-100 dark:bg-orange-900 rounded-lg">
+                        <Icon className="w-4 h-4 md:w-6 md:h-6 text-orange-600 dark:text-orange-400" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-gray-900 dark:text-white">
+                        <h3 className="text-xs md:text-base font-bold text-gray-900 dark:text-white line-clamp-2">
                           {t[cert.titleKey as keyof typeof t]}
                         </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-[10px] md:text-sm text-gray-600 dark:text-gray-400 mt-1">
                           {t[cert.issuerKey as keyof typeof t]}
                         </p>
                       </div>

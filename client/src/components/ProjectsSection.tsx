@@ -95,7 +95,7 @@ export default function ProjectsSection() {
 
           {/* Projects Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 mb-8"
             variants={containerVariants}
           >
             {featuredProjects.map((project, index) => (
@@ -106,7 +106,7 @@ export default function ProjectsSection() {
                 className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300"
               >
                 {/* Project Image Container */}
-                <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-slate-700">
+                <div className="relative h-32 md:h-52 overflow-hidden bg-gray-100 dark:bg-slate-700">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -118,15 +118,15 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="p-3 md:p-6">
+                  <h3 className="text-sm md:text-xl font-bold text-gray-900 dark:text-white mb-1 md:mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  <p className="text-gray-600 dark:text-gray-400 text-[10px] md:text-sm mb-2 md:mb-4 line-clamp-2">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}

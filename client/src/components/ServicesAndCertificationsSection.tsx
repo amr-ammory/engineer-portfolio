@@ -118,7 +118,7 @@ export default function ServicesAndCertificationsSection() {
 
           {/* Services Cards */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
+            className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mb-10"
             variants={containerVariants}
           >
             {services.map((service, index) => {
@@ -129,28 +129,28 @@ export default function ServicesAndCertificationsSection() {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-                  className={`p-8 bg-gradient-to-br ${service.color} dark:from-slate-800 dark:to-slate-700 rounded-lg border-2 ${service.borderColor} dark:border-slate-600 transition-all duration-300`}
+                  className={`p-3 md:p-8 bg-gradient-to-br ${service.color} dark:from-slate-800 dark:to-slate-700 rounded-lg border-2 ${service.borderColor} dark:border-slate-600 transition-all duration-300`}
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`p-4 ${service.iconBg} rounded-lg flex-shrink-0`}>
-                      <Icon className="w-7 h-7 text-white" />
+                  <div className="flex flex-col md:flex-row items-start gap-2 md:gap-4 mb-2 md:mb-4">
+                    <div className={`p-2 md:p-4 ${service.iconBg} rounded-lg flex-shrink-0`}>
+                      <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-sm md:text-2xl font-bold text-gray-900 dark:text-white mb-1 md:mb-2 line-clamp-2">
                         {t[service.titleKey as keyof typeof t]}
                       </h3>
-                      <p className="text-sm font-semibold text-orange-600 dark:text-orange-400">
+                      <p className="text-[10px] md:text-sm font-semibold text-orange-600 dark:text-orange-400">
                         {t[service.statsKey as keyof typeof t]}
                       </p>
                     </div>
                   </div>
                   {description && (
-                    <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                    <p className="text-[10px] md:text-gray-700 dark:text-gray-300 mb-2 md:mb-4 leading-relaxed line-clamp-3">
                       {description}
                     </p>
                   )}
-                  <div className="pt-4 border-t-2 border-gray-300 dark:border-slate-600 border-opacity-50">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                  <div className="pt-2 md:pt-4 border-t-2 border-gray-300 dark:border-slate-600 border-opacity-50">
+                    <p className="text-[9px] md:text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1 md:gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600" />
                       {t[service.achievementKey as keyof typeof t]}
                     </p>
