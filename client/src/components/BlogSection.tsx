@@ -87,7 +87,7 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-20 md:py-32 bg-white dark:bg-slate-900">
+    <section id="blog" className="py-10 md:py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-7xl mx-auto"
@@ -96,7 +96,7 @@ export default function BlogSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-4 md:gap-6">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-1 h-10 bg-orange-600 rounded-full" />
@@ -118,25 +118,25 @@ export default function BlogSection() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
             {blogPosts.map((post) => (
               <motion.article
                 key={post.id}
                 variants={itemVariants}
-                className={`group bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border ${post.featured ? 'border-orange-500 ring-1 ring-orange-500' : 'border-gray-100 dark:border-slate-700'} hover:shadow-xl transition-all duration-300`}
+                className={`group bg-gray-50 dark:bg-slate-800 rounded-xl md:rounded-2xl overflow-hidden border ${post.featured ? 'border-orange-500 ring-1 ring-orange-500' : 'border-gray-100 dark:border-slate-700'} hover:shadow-xl transition-all duration-300`}
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-32 md:h-56 overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title[language as 'en' | 'ar']}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full uppercase">
+                  <div className="absolute top-2 left-2 md:top-4 md:left-4 flex flex-wrap gap-1 md:gap-2">
+                    <span className="px-1.5 md:px-3 py-0.5 md:py-1 bg-orange-600 text-white text-[8px] md:text-xs font-bold rounded-full uppercase">
                       {post.category[language as 'en' | 'ar']}
                     </span>
                     {post.featured && (
-                      <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase flex items-center gap-1">
+                      <span className="px-1.5 md:px-3 py-0.5 md:py-1 bg-blue-600 text-white text-[8px] md:text-xs font-bold rounded-full uppercase flex items-center gap-1">
                         <Cpu className="w-3 h-3" />
                         {language === 'ar' ? 'متطور' : 'Advanced'}
                       </span>
@@ -144,8 +144,8 @@ export default function BlogSection() {
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4">
+                <div className="p-3 md:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-[8px] md:text-xs text-gray-500 dark:text-gray-400 mb-2 md:mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{post.date}</span>
@@ -156,15 +156,15 @@ export default function BlogSection() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-sm md:text-xl font-bold text-gray-900 dark:text-white mb-1 md:mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
                     {post.title[language as 'en' | 'ar']}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-400 text-[10px] md:text-sm mb-3 md:mb-6 line-clamp-2 md:line-clamp-3">
                     {post.excerpt[language as 'en' | 'ar']}
                   </p>
 
-                  <button className="inline-flex items-center gap-2 text-orange-600 font-bold text-sm hover:gap-3 transition-all">
+                  <button className="inline-flex items-center gap-1 md:gap-2 text-orange-600 font-bold text-[10px] md:text-sm hover:gap-2 md:hover:gap-3 transition-all">
                     {language === 'ar' ? 'اقرأ المزيد' : 'Read More'}
                     <ArrowRight className="w-4 h-4" />
                   </button>
