@@ -131,7 +131,7 @@ export default function AboutSection() {
 
           {/* Stats Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-8"
             variants={containerVariants}
           >
             {stats.map((stat, index) => {
@@ -140,18 +140,18 @@ export default function AboutSection() {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="p-3 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 bg-orange-600 rounded-lg">
-                      <Icon className="w-6 h-6 text-white" />
+                  <div className="flex flex-col md:flex-row items-start gap-2 md:gap-4 mb-2 md:mb-4">
+                    <div className="p-2 md:p-3 bg-orange-600 rounded-lg flex-shrink-0">
+                      <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{stat.label}</p>
+                      <p className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">{stat.value}</p>
+                      <p className="text-[10px] md:text-sm text-gray-600 dark:text-gray-400 font-medium leading-tight">{stat.label}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{stat.description}</p>
+                  <p className="text-[10px] md:text-sm text-gray-600 dark:text-gray-300 line-clamp-2 md:line-clamp-none">{stat.description}</p>
                 </motion.div>
               );
             })}
