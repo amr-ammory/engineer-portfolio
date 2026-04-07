@@ -132,34 +132,34 @@ export default function ExperienceSection() {
             </div>
 
             {/* Experience Timeline */}
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="relative pl-8 border-l-2 border-orange-600 pb-8"
+                  className="relative pl-6 md:pl-8 border-l-2 border-orange-600 pb-4 md:pb-8"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-4 top-0 w-6 h-6 bg-orange-600 rounded-full border-4 border-white dark:border-slate-900" />
+                  <div className="absolute -left-[9px] md:-left-4 top-0 w-4 h-4 md:w-6 md:h-6 bg-orange-600 rounded-full border-2 md:border-4 border-white dark:border-slate-900" />
 
                   {/* Content */}
-                  <div className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                  <div className="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-lg border border-gray-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-base md:text-xl font-bold text-gray-900 dark:text-white mb-0.5 md:mb-1">
                       {t[exp.titleKey as keyof typeof t]}
                     </h3>
-                    <p className="text-orange-600 dark:text-orange-400 font-semibold mb-3">
+                    <p className="text-sm md:text-orange-600 dark:text-orange-400 font-semibold mb-2 md:mb-3 text-orange-600">
                       {t[exp.companyKey as keyof typeof t]}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-4 line-clamp-3 md:line-clamp-none">
                       {t[exp.descKey as keyof typeof t]}
                     </p>
 
                     {/* Highlights */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1 md:gap-2">
                       {exp.highlights.map((highlight, hIndex) => (
                         <span
                           key={hIndex}
-                          className="px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full"
+                          className="px-2 py-0.5 md:px-3 md:py-1 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-[10px] md:text-xs font-medium rounded-full"
                         >
                           {highlight}
                         </span>
