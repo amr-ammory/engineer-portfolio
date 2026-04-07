@@ -162,43 +162,43 @@ export default function SkillsSection() {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-12">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={categoryIndex}
                 variants={cardVariants}
                 whileHover="hover"
-                className="will-change-transform p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200"
+                className="will-change-transform p-3 md:p-6 bg-white dark:bg-gray-800 rounded-lg md:rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200"
               >
-                <div className={`inline-flex p-2.5 bg-gradient-to-br ${category.color} rounded-lg mb-4 text-white`}>
-                  {category.icon}
-                </div>
+<div className={`inline-flex p-1.5 md:p-2.5 bg-gradient-to-br ${category.color} rounded-md md:rounded-lg mb-2 md:mb-4 text-white`}>
+	                  {category.icon && <div className="w-4 h-4 md:w-6 md:h-6 flex items-center justify-center">{category.icon}</div>}
+	                </div>
 
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">
-                  {category.title}
-                </h3>
+	                <h3 className="text-xs md:text-lg font-bold text-gray-900 dark:text-white mb-3 md:mb-5 line-clamp-2 min-h-[2rem] md:min-h-0">
+	                  {category.title}
+	                </h3>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                      <div className="flex justify-between items-center mb-1.5">
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
-                        <span className={`text-xs font-bold bg-gradient-to-r ${getSkillColor(skill.level)} bg-clip-text text-transparent`}>
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className={`w-full h-2 ${getSkillBarBgColor(skill.level)} rounded-full overflow-hidden`}>
-                        <motion.div
-                          className={`h-full bg-gradient-to-r ${getSkillColor(skill.level)} rounded-full`}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 0.6, ease: 'easeOut' }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+<div className="space-y-2 md:space-y-4">
+	                  {category.skills.map((skill, skillIndex) => (
+	                    <div key={skillIndex}>
+	                      <div className="flex justify-between items-center mb-1">
+	                        <span className="text-[10px] md:text-sm font-medium text-gray-700 dark:text-gray-300 truncate pr-1">{skill.name}</span>
+	                        <span className={`text-[8px] md:text-xs font-bold bg-gradient-to-r ${getSkillColor(skill.level)} bg-clip-text text-transparent`}>
+	                          {skill.level}%
+	                        </span>
+	                      </div>
+	                      <div className={`w-full h-1 md:h-2 ${getSkillBarBgColor(skill.level)} rounded-full overflow-hidden`}>
+	                        <motion.div
+	                          className={`h-full bg-gradient-to-r ${getSkillColor(skill.level)} rounded-full shadow-[0_0_8px_rgba(249,115,22,0.3)]`}
+	                          initial={{ width: 0 }}
+	                          whileInView={{ width: `${skill.level}%` }}
+	                          transition={{ duration: 1, ease: 'circOut', delay: skillIndex * 0.1 }}
+	                          viewport={{ once: true }}
+	                        />
+	                      </div>
+	                    </div>
+	                  ))}
+	                </div>
               </motion.div>
             ))}
           </div>
