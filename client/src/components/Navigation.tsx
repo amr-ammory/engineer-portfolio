@@ -3,8 +3,7 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const profilePhoto = '';
+import profilePhoto from '/images/profile-photo.jpg';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,22 +69,20 @@ export default function Navigation() {
             onClick={() => handleScroll('#home')}
           >
             <div className="relative flex-shrink-0">
-              {profilePhoto ? (
-                <img
-                  src={profilePhoto}
-                  alt="Amr Ammory"
-                  className="w-11 h-11 rounded-full object-cover object-top shadow-md ring-2 ring-orange-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'flex';
-                  }}
-                />
-              ) : null}
+              <img
+                src={profilePhoto}
+                alt="Amr Ammory"
+                className="w-11 h-11 rounded-full object-cover object-top shadow-md ring-2 ring-orange-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
               {/* Fallback initials */}
               <div
-                className="w-11 h-11 rounded-full bg-orange-600 ring-2 ring-orange-500 ring-offset-2 flex items-center justify-center text-white font-bold text-base shadow-md"
-                style={{ display: profilePhoto ? 'none' : 'flex' }}
+                className="w-11 h-11 rounded-full bg-orange-600 ring-2 ring-orange-500 ring-offset-2 items-center justify-center text-white font-bold text-base shadow-md"
+                style={{ display: 'none' }}
               >
                 AA
               </div>
