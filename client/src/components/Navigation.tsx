@@ -3,8 +3,7 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const profilePhoto = "/images/profile-photo.jpg";
+import profilePhoto from '/images/profile-photo.jpg';
 
 /**
  * Navigation Component
@@ -33,55 +32,31 @@ export default function Navigation() {
     { label: t('nav.contact'), href: '#contact', id: 'contact' },
   ];
 
-  // Improved scroll handler with better error handling
   const handleScroll = (href: string) => {
     setIsOpen(false);
-    
-    // Remove # if present
     const targetId = href.replace('#', '');
-    
-    // Try to find element by ID
     let element = document.getElementById(targetId);
-    
-    // If not found, try querySelector
-    if (!element) {
-      element = document.querySelector(href);
-    }
-    
+    if (!element) element = document.querySelector(href);
     if (element) {
-      // Small delay to ensure menu closes before scrolling
       setTimeout(() => {
-        element?.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
     }
   };
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const nav = document.querySelector('nav');
-      if (nav && !nav.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
+      if (nav && !nav.contains(e.target as Node)) setIsOpen(false);
     };
-
     if (isOpen) {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
     }
   }, [isOpen]);
 
-  // Close mobile menu on window resize
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-      }
-    };
-
+    const handleResize = () => { if (window.innerWidth >= 768) setIsOpen(false); };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -95,35 +70,36 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+
+          {/* Logo / Profile */}
           <motion.div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
             onClick={() => handleScroll('#home')}
           >
-            <div className="relative">
+            <div className="relative flex-shrink-0">
               <img
                 src={profilePhoto}
                 alt="Amr Ammory"
-                className="w-12 h-12 rounded-full object-cover object-top shadow-md ring-2 ring-orange-500 ring-offset-1"
+                className="w-11 h-11 rounded-full object-cover object-top shadow-md ring-2 ring-orange-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900"
                 onError={(e) => {
-                  // Fallback: show initials if image fails to load
                   e.currentTarget.style.display = 'none';
                   const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
+              {/* Fallback initials */}
               <div
-                className="w-12 h-12 rounded-full bg-orange-600 ring-2 ring-orange-500 ring-offset-1 items-center justify-center text-white font-bold text-lg shadow-md"
+                className="w-11 h-11 rounded-full bg-orange-600 ring-2 ring-orange-500 ring-offset-2 items-center justify-center text-white font-bold text-base shadow-md"
                 style={{ display: 'none' }}
               >
                 AA
               </div>
             </div>
-            <div className="hidden sm:block">
-              <p className="text-sm font-bold text-gray-900 dark:text-white transition-colors duration-300">Amr Ammory</p>
-              <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold transition-colors duration-300">Mechanical Engineer</p>
+            <div className="hidden sm:block leading-tight">
+              <p className="text-sm font-bold text-gray-900 dark:text-white">Amr Ammory</p>
+              <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold">Mechanical Engineer</p>
             </div>
           </motion.div>
 
@@ -165,11 +141,7 @@ export default function Navigation() {
             whileTap={{ scale: 0.95 }}
             title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
-            {isDarkMode ? (
-              <Sun className="w-5 h-5 text-yellow-500" />
-            ) : (
-              <Moon className="w-5 h-5 text-gray-700" />
-            )}
+            {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-700" />}
           </motion.button>
 
           {/* CTA Button Desktop */}
@@ -188,7 +160,6 @@ export default function Navigation() {
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 mr-2 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            title={language === 'en' ? 'Switch to Arabic' : '\u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0625\u0644\u0649 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629'}
           >
             <Globe className="w-5 h-5 text-gray-700 dark:text-gray-200" />
           </motion.button>
@@ -199,30 +170,17 @@ export default function Navigation() {
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 mr-2 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
-            {isDarkMode ? (
-              <Sun className="w-5 h-5 text-yellow-500" />
-            ) : (
-              <Moon className="w-5 h-5 text-gray-700" />
-            )}
+            {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-700" />}
           </motion.button>
 
-          {/* Mobile Menu Button - Improved responsiveness */}
+          {/* Mobile Menu Button */}
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIsOpen(!isOpen);
-            }}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsOpen(!isOpen); }}
             className="md:hidden p-3 -mr-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200 cursor-pointer z-[60] touch-manipulation"
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X className="w-7 h-7 text-gray-900 dark:text-gray-50" />
-            ) : (
-              <Menu className="w-7 h-7 text-gray-900 dark:text-gray-50" />
-            )}
+            {isOpen ? <X className="w-7 h-7 text-gray-900 dark:text-gray-50" /> : <Menu className="w-7 h-7 text-gray-900 dark:text-gray-50" />}
           </button>
         </div>
 
@@ -230,10 +188,7 @@ export default function Navigation() {
         <motion.div
           className="md:hidden overflow-hidden bg-white dark:bg-slate-900"
           initial={{ height: 0, opacity: 0 }}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
+          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' as const }}
         >
           <div className="py-4 space-y-2 border-t border-gray-200 dark:border-slate-700 px-2">
