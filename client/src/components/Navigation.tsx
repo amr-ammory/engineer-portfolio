@@ -3,12 +3,14 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import profilePhoto from '/images/profile-photo.jpg';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { language, toggleLanguage, t } = useLanguage();
+
+  // Cache-busting: force browser to reload the latest profile photo
+  const profilePhoto = `/images/profile-photo.jpg?v=${Date.now()}`;
 
   const navItems = [
     { label: t('nav.home'), href: '#home', id: 'home' },
