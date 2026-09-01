@@ -104,3 +104,7 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Internal development notes (do not expose publicly)
+ideas.md
+.gitkeep
