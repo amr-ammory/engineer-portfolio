@@ -3,7 +3,8 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-const profilePhoto = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137293024/szLlkTeuVtPSTcJc.jpg";
+
+const profilePhoto = "/images/profile-photo.jpg";
 
 /**
  * Navigation Component
@@ -25,9 +26,9 @@ export default function Navigation() {
     { label: t('nav.about'), href: '#about', id: 'about' },
     { label: t('nav.services'), href: '#services', id: 'services' },
     { label: t('nav.skills'), href: '#skills', id: 'skills' },
-    { label: language === 'ar' ? 'المعرض' : 'Gallery', href: '#gallery', id: 'gallery' },
+    { label: language === 'ar' ? '\u0627\u0644\u0645\u0639\u0631\u0636' : 'Gallery', href: '#gallery', id: 'gallery' },
     { label: t('nav.projects'), href: '#projects', id: 'projects' },
-    { label: language === 'ar' ? 'المدونة' : 'Blog', href: '#blog', id: 'blog' },
+    { label: language === 'ar' ? '\u0627\u0644\u0645\u062f\u0648\u0646\u0629' : 'Blog', href: '#blog', id: 'blog' },
     { label: t('nav.experience'), href: '#experience', id: 'experience' },
     { label: t('nav.contact'), href: '#contact', id: 'contact' },
   ];
@@ -101,11 +102,25 @@ export default function Navigation() {
             transition={{ duration: 0.2 }}
             onClick={() => handleScroll('#home')}
           >
-            <img
-              src={profilePhoto}
-              alt="Amr Ammory"
-              className="w-12 h-12 rounded-lg object-cover shadow-md"
-            />
+            <div className="relative">
+              <img
+                src={profilePhoto}
+                alt="Amr Ammory"
+                className="w-12 h-12 rounded-full object-cover object-top shadow-md ring-2 ring-orange-500 ring-offset-1"
+                onError={(e) => {
+                  // Fallback: show initials if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div
+                className="w-12 h-12 rounded-full bg-orange-600 ring-2 ring-orange-500 ring-offset-1 items-center justify-center text-white font-bold text-lg shadow-md"
+                style={{ display: 'none' }}
+              >
+                AA
+              </div>
+            </div>
             <div className="hidden sm:block">
               <p className="text-sm font-bold text-gray-900 dark:text-white transition-colors duration-300">Amr Ammory</p>
               <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold transition-colors duration-300">Mechanical Engineer</p>
@@ -134,11 +149,11 @@ export default function Navigation() {
             className="hidden md:flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 gap-1 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+            title={language === 'en' ? 'Switch to Arabic' : '\u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0625\u0644\u0649 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629'}
           >
             <Globe className="w-5 h-5 text-gray-700 dark:text-gray-200" />
             <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
-              {language === 'en' ? 'عربي' : 'EN'}
+              {language === 'en' ? '\u0639\u0631\u0628\u064a' : 'EN'}
             </span>
           </motion.button>
 
@@ -173,7 +188,7 @@ export default function Navigation() {
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 mr-2 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+            title={language === 'en' ? 'Switch to Arabic' : '\u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0625\u0644\u0649 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629'}
           >
             <Globe className="w-5 h-5 text-gray-700 dark:text-gray-200" />
           </motion.button>
