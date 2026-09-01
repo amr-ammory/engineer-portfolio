@@ -18,8 +18,8 @@ export default function AboutSection() {
   const [downloadClickedAr, setDownloadClickedAr] = useState(false);
 
   // Direct download links from Google Drive
-  const CV_EN_URL = "https://drive.google.com/uc?export=download&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd";
-  const CV_AR_URL = "https://drive.google.com/uc?export=download&id=1fzLYa_25cC9p5h-RLcywrliZMXk5oWAg";
+  const CV_EN_URL = "https://drive.google.com/uc?export=download&id=15fykSiudKQpZa_jfvssQC-uqmVSeupfn";
+  const CV_AR_URL = "https://drive.google.com/uc?export=download&id=1g9gxGXbdcHvxslim1yHd7gGZa1VNQPME";
 
   const stats = [
     {
