@@ -19,7 +19,7 @@ export const translations = {
     },
     about: {
       title: 'About Me',
-      description: 'I\'m a highly motivated and proficient fifth-year Mechanical Engineering student specializing in Advanced Mechanical Design and Precision Manufacturing Processes. With extensive hands-on experience in SolidWorks, ANSYS, and AutoCAD, I\'ve successfully completed over 50 design projects achieving 100% compliance with ASME and ISO standards.',
+      description: 'I am a graduate of the Faculty of Mechanical Engineering — Design and Production Department, specializing in Advanced Mechanical Design and Precision Manufacturing Processes. With extensive hands-on experience in SolidWorks, ANSYS, and AutoCAD, I have successfully completed over 50 design projects achieving 100% compliance with ASME and ISO standards.',
       downloadCV: 'Download My CV',
       downloadCVAr: 'تنزيل السيرة الذاتية',
       stats: {
@@ -156,7 +156,7 @@ export const translations = {
       atsAuditor: 'ATS System Auditor',
       atsAuditorIssuer: 'Specialized Certification',
       education: 'Education',
-      mechanical: 'Mechanical Engineering Student, Fifth Year',
+      mechanical: 'Mechanical Engineering Graduate — Design & Production',
       aleppo: 'Aleppo University (2021-2026)',
       award: 'Awarded first place in the Mechanical Engineering Department for consistent academic excellence',
     },
@@ -204,7 +204,7 @@ export const translations = {
     },
     about: {
       title: 'عني',
-      description: 'أنا طالب هندسة ميكانيكية في السنة الخامسة، متخصص في التصميم الميكانيكي المتقدم وعمليات التصنيع الدقيق. مع خبرة عملية واسعة في SolidWorks و ANSYS و AutoCAD، أنجزت بنجاح أكثر من 50 مشروع تصميم بامتثال 100% لمعايير ASME و ISO.',
+      description: 'أنا خريج من كلية الهندسة الميكانيكية — قسم تصميم وإنتاج، متخصص في التصميم الميكانيكي المتقدم وعمليات التصنيع الدقيق. مع خبرة عملية واسعة في SolidWorks و ANSYS و AutoCAD، أنجزت بنجاح أكثر من 50 مشروع تصميم بامتثال 100% لمعايير ASME و ISO.',
       downloadCV: 'تحميل السيرة الذاتية',
       downloadCVAr: 'تنزيل السيرة الذاتية',
       stats: {
@@ -341,7 +341,7 @@ export const translations = {
       atsAuditor: 'مدقق نظام ATS',
       atsAuditorIssuer: 'شهادة متخصصة',
       education: 'التعليم',
-      mechanical: 'طالب هندسة ميكانيكية، السنة الخامسة',
+      mechanical: 'خريج هندسة ميكانيكية — قسم تصميم وإنتاج',
       aleppo: 'جامعة حلب (2021-2026)',
       award: 'حاز على المركز الأول في قسم الهندسة الميكانيكية لتميزه الأكاديمي المستمر',
     },
