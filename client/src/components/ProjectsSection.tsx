@@ -5,15 +5,15 @@ import { translations } from '@/locales/translations';
 import { ALL_PROJECTS } from '@/const';
 
 /**
- * Projects Section Component - Cleaned Version
- * Displays all 11 SolidWorks projects using local assets
+ * Projects Section Component
+ * Displays all SolidWorks projects using local assets
+ * Projects with liveUrl show an extra "Visit Site" button
  */
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
   const t = translations[language].projects;
 
-  // Use all projects from const.ts, ensuring they are linked to local images
   const featuredProjects = ALL_PROJECTS.map((project, index) => {
     const colors = [
       'from-blue-500 to-cyan-500',
@@ -31,6 +31,7 @@ export default function ProjectsSection() {
       technologies: project.tags,
       image: project.image,
       link: 'https://drive.google.com/drive/folders/1I2WsU8eHcsWqFYVAc5HgD6uuFqaW8oRu',
+      liveUrl: (project as any).liveUrl as string | undefined,
       color: colors[index % colors.length],
     };
   });
@@ -115,6 +116,13 @@ export default function ProjectsSection() {
                   <div className="absolute top-4 left-4 px-3 py-1 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase">
                     {project.category}
                   </div>
+                  {/* Live Site Badge */}
+                  {project.liveUrl && (
+                    <div className="absolute top-4 right-4 px-2 py-1 bg-green-500 text-white text-[10px] font-bold rounded-full flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                      LIVE
+                    </div>
+                  )}
                 </div>
 
                 {/* Project Content */}
@@ -137,15 +145,30 @@ export default function ProjectsSection() {
                     ))}
                   </div>
 
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-orange-600 font-bold text-sm hover:gap-3 transition-all"
-                  >
-                    {t.viewProject}
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  {/* Buttons Row */}
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-orange-600 font-bold text-[11px] md:text-sm hover:gap-2 transition-all"
+                    >
+                      {t.viewProject}
+                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                    </a>
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2 py-1 md:px-3 md:py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-[10px] md:text-xs font-bold rounded-lg transition-colors duration-200"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                        {language === 'ar' ? 'زيارة الموقع' : 'Visit Site'}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

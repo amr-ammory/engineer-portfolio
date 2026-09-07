@@ -37,7 +37,8 @@ export const ALL_PROJECTS = [
     category: 'CAD Design',
     image: getProjectImg('stair_climber_final.jpg'),
     tags: ['SolidWorks', 'Mechanism', 'Robotics'],
-    description: { en: 'Advanced planetary wheel system for stair climbing.', ar: 'نظام عجلات كوكبي متطور لتسلق الدرج.' }
+    description: { en: 'Advanced planetary wheel system for stair climbing.', ar: 'نظام عجلات كوكبي متطور لتسلق الدرج.' },
+    liveUrl: 'https://amr-ammory.github.io/chair.luxury/'
   },
   {
     id: '2',
@@ -61,7 +62,8 @@ export const ALL_PROJECTS = [
     category: 'CAD Design',
     image: getProjectImg('stair_climber_side.jpg'),
     tags: ['SolidWorks', 'Mechanism'],
-    description: { en: 'Side view showing the mechanical linkage of the climber.', ar: 'عرض جانبي يوضح الوصلات الميكانيكية للمتسلق.' }
+    description: { en: 'Side view showing the mechanical linkage of the climber.', ar: 'عرض جانبي يوضح الوصلات الميكانيكية للمتسلق.' },
+    liveUrl: 'https://amr-ammory.github.io/chair.luxury/'
   },
   {
     id: '5',
@@ -101,7 +103,8 @@ export const ALL_PROJECTS = [
     category: 'CAD Design',
     image: getProjectImg('stair_climber_model.jpg'),
     tags: ['SolidWorks', '3D Modeling'],
-    description: { en: '3D model view of the stair climber wheelchair.', ar: 'عرض النموذج ثلاثي الأبعاد للكرسي المتسلق للدرج.' }
+    description: { en: '3D model view of the stair climber wheelchair.', ar: 'عرض النموذج ثلاثي الأبعاد للكرسي المتسلق للدرج.' },
+    liveUrl: 'https://amr-ammory.github.io/chair.luxury/'
   },
   {
     id: '10',
@@ -158,6 +161,15 @@ export const ALL_PROJECTS = [
     image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663137293024/JOUOXceDIZOiJWpj.png',
     tags: ['ANSYS', 'Stress Analysis', 'Simulation'],
     description: { en: 'Stress and vibration analysis of the purification machine frame.', ar: 'تحليل الإجهاد والاهتزاز لهيكل آلة التنقية.' }
+  },
+  {
+    id: '17',
+    title: { en: 'Motafawiq Learning Platform', ar: 'منصة المتفوق التعليمية' },
+    category: 'Web Platform',
+    image: 'https://amr-ammory.github.io/motafawiq-platform/assets/og-image.png',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Education'],
+    description: { en: 'An educational web platform offering structured courses and learning resources.', ar: 'منصة تعليمية إلكترونية توفر دورات منظمة ومصادر تعلم متكاملة.' },
+    liveUrl: 'https://amr-ammory.github.io/motafawiq-platform/'
   }
 ];
 
