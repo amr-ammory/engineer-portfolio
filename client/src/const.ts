@@ -178,12 +178,12 @@ export const ALL_PROJECTS = [
  */
 export const CV_LINKS = {
   english: {
-    pdf: 'https://drive.google.com/file/d/1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd/view',
-    download: 'https://drive.google.com/uc?export=download&id=1Wfyg8_uTFyDw54FdCys_aAGVu2-29Kxd',
+    pdf: 'https://drive.google.com/file/d/1RnMo0LRIVKlQeVKIjaJMZnSnITMErSSO/view',
+    download: 'https://drive.google.com/uc?export=download&id=1RnMo0LRIVKlQeVKIjaJMZnSnITMErSSO',
   },
   arabic: {
-    pdf: 'https://drive.google.com/file/d/1fzLYa_25cC9p5h-RLcywrliZMXk5oWAg/view',
-    download: 'https://drive.google.com/uc?export=download&id=1fzLYa_25cC9p5h-RLcywrliZMXk5oWAg',
+    pdf: 'https://drive.google.com/file/d/1-ZQ3HWsOsfFgJLNCKyUDxLsMtBcUQLm-/view',
+    download: 'https://drive.google.com/uc?export=download&id=1-ZQ3HWsOsfFgJLNCKyUDxLsMtBcUQLm-',
   },
 };
 
