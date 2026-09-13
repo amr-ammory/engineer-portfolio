@@ -182,8 +182,8 @@ export const CV_LINKS = {
     download: 'https://drive.google.com/uc?export=download&id=1RnMo0LRIVKlQeVKIjaJMZnSnITMErSSO',
   },
   arabic: {
-    pdf: 'https://drive.google.com/file/d/1-ZQ3HWsOsfFgJLNCKyUDxLsMtBcUQLm-/view',
-    download: 'https://drive.google.com/uc?export=download&id=1-ZQ3HWsOsfFgJLNCKyUDxLsMtBcUQLm-',
+    pdf: 'https://drive.google.com/file/d/1RbNTF5SWnOj_Y6mjIG2F8Fccgj5usiIy/view',
+    download: 'https://drive.google.com/uc?export=download&id=1RbNTF5SWnOj_Y6mjIG2F8Fccgj5usiIy',
   },
 };
 
